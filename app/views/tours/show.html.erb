@@ -1,0 +1,18 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @tour.Name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @tour.Description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @tour.Price %>
+</p>
+
+<%= link_to 'Edit', edit_tour_path(@tour) %> |
+<%= link_to 'Back', tours_path %>
