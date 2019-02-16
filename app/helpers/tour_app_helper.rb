@@ -1,0 +1,2 @@
+module TourAppHelper
+end
