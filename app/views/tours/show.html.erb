@@ -1,3 +1,5 @@
+<% provide(:title, "Home") %>
+<%= render "partials/navbar" %>
 
 <p>
   <strong>Name:</strong>
@@ -14,5 +16,51 @@
   <%= @tour.Price %>
 </p>
 
+<p>
+  <strong>Start Date:</strong>
+  <%= @tour.start_date %>
+</p>
+
+<p>
+  <strong>End Date:</strong>
+  <%= @tour.end_date %>
+</p>
+
+<p>
+  <strong>Total Seats:</strong>
+  <%= @tour.total_seats %>
+</p>
+
+<p>
+  <strong>Available Seats:</strong>
+  <%= @tour.avail_seats %>
+</p>
+
+<p>
+  <strong>Available Waitlist:</strong>
+  <%= @tour.avail_waitlist %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @tour.status %>
+</p>
+
+<p>
+  <strong>Booking Deadline:</strong>
+  <%= @tour.booking_deadline %>
+</p>
+
+<p>
+  <strong>Countries:</strong>
+  <%= @tour.countries %>
+</p>
+
+<p>
+  <strong>States:</strong>
+  <%= @tour.states %>
+</p>
+
 <%= link_to 'Edit', edit_tour_path(@tour) %> |
+<%= link_to 'Book', @tour %> |
 <%= link_to 'Back', tours_path %>

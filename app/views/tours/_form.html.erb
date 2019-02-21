@@ -1,3 +1,4 @@
+
 <%= form_with(model: tour, local: true) do |form| %>
   <% if tour.errors.any? %>
     <div id="error_explanation">
@@ -24,6 +25,57 @@
   <div class="field">
     <%= form.label :Price %>
     <%= form.text_field :Price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_date %>
+    <%= form.date_field :start_date, min: 1.month.from_now %>
+  </div>
+
+   <div class="field">
+    <%= form.label :end_date %>
+    <%= form.date_field :end_date, max: 2.month.from_now, min: 45.days.from_now %>
+  </div>
+
+   <div class="field">
+    <%= form.label :pickup %>
+    <%= form.text_field :pickup %>
+  </div>
+
+   <div class="field">
+    <%= form.label :total_seats %>
+    <%= form.text_field :total_seats %>
+  </div>
+
+   <div class="field">
+    <%= form.label :avail_seats %>
+    <%= form.text_field :avail_seats %>
+  </div>
+
+  <div class="field">
+    <%= form.label :avail_waitlist %>
+    <%= form.text_field :avail_waitlist %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.radio_button :status, 'Active' %> Active<br />
+    <%= form.radio_button :status, 'Completed' %> Completed<br />
+  </div>
+
+  <div class="field">
+    <%= form.label :booking_deadline %>
+    <%= form.datetime_field :booking_deadline, max: 15.days.from_now, min: 5.days.from_now %>
+  </div>
+
+  <div class="field">
+    <%= form.label :countries %>
+    <%= form.text_field :countries %>
+  </div>
+
+  <div class="field">
+    <%= form.label :states %>
+    <%= form.text_field :states %>
   </div>
 
   <div class="actions">
