@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_15_233716) do
+ActiveRecord::Schema.define(version: 2019_02_16_015235) do
 
   create_table "tours", force: :cascade do |t|
     t.string "Name"
@@ -18,6 +18,17 @@ ActiveRecord::Schema.define(version: 2019_02_15_233716) do
     t.float "Price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.string "pickup"
+    t.integer "total_seats"
+    t.integer "avail_seats"
+    t.integer "total_waitlist"
+    t.integer "avail_waitlist"
+    t.boolean "status"
+    t.datetime "booking_deadline"
+    t.text "countries"
+    t.text "cities"
   end
 
   create_table "users", force: :cascade do |t|
