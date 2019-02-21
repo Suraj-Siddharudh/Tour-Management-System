@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_16_015235) do
+ActiveRecord::Schema.define(version: 2019_02_21_220833) do
 
   create_table "tours", force: :cascade do |t|
     t.string "Name"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2019_02_16_015235) do
     t.string "pickup"
     t.integer "total_seats"
     t.integer "avail_seats"
-    t.integer "total_waitlist"
     t.integer "avail_waitlist"
     t.boolean "status"
     t.datetime "booking_deadline"
@@ -39,6 +38,8 @@ ActiveRecord::Schema.define(version: 2019_02_16_015235) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "phone_number"
+    t.integer "access_control"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
