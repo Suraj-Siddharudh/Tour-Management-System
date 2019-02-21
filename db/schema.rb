@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2019_02_16_015235) do
     t.boolean "status"
     t.datetime "booking_deadline"
     t.text "countries"
-    t.text "cities"
+    t.text "states"
   end
 
   create_table "users", force: :cascade do |t|
