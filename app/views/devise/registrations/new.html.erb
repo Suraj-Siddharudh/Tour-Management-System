@@ -14,6 +14,20 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autocomplete: "email" %>
   </div>
+  <div class="field">
+    <%= f.label :phone_number %><br />
+    <%= f.text_field :phone_number, autocomplete: "number" %>
+</div>
+
+  <div class="field">
+   <%= f.label :role %>
+    <h2>Role Jai</h2>
+    <%= f.radio_button :is_customer , 'Customer', :checked => true%>
+    <%= f.label :role, 'Customer'%><br/>
+    <%= f.radio_button :is_agent, 'Agent'%>
+    <%= f.label :role, 'Agent'%><br/>
+
+  </div>
 
   <div class="field">
     <%= f.label :password %>
@@ -29,7 +43,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up" :class => "btn btn-success"%>
   </div>
 <% end %>
 

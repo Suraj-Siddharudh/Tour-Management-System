@@ -24,14 +24,35 @@
 
   <div class="field">
     <%= f.label :email%>
-    <%= f.text_area :email %>
+    <%= f.email_field :email %>
   </div>
  <div class="field">
-    <%= f.label :phone_Number%>
-    <%= f.text_area :phone_number %>
+    <%= f.label :phone_number%>
+    <%= f.text_field :phone_number %>
+  </div>
+  <div class="field">
+   <%= f.label :role %>
+    <h2>Role Jai</h2>
+    <%= f.radio_button :is_customer , 'Customer', :checked => true%>
+    <%= f.label :role, 'Customer'%><br/>
+    <%= f.radio_button :is_agent, 'Agent'%>
+    <%= f.label :role, 'Agent'%><br/>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "password" %>
   </div>
 
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "password_confirmation" %>
+  </div>
+
+  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-success"%>
   </div>
 
