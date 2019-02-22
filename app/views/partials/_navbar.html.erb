@@ -1,23 +1,24 @@
 <nav class="navbar navbar-dark bg-dark justify-content-between" style="margin-below: 50px">
   <div>
     <img src="/nav.gif" style="width:40px; margin-right:10px">
-    <%= link_to "tour", root_path, :class => "navbar-brand" %>
+    <%= link_to "Home", root_path, :class => "navbar-brand" %>
   </div>
-  <%# <% if(user_signed_in?) %> %>
+  <%# <% if(user_signed_in?) %> 
     <%# <ul class="navbar-nav mr-auto"> %>
       <%# <li> %>
         <%# <%= link_to "Profile", user_edit_path(current_user.id), :class=>"btn btn-success"%> %>
       <%# </li> %>
     <%# </ul> %>
     <li style="list-style: none;">
-      <%# <% if current_user.is_hunter && current_user.is_realtor %> %>
-        <%# <% if session[:role] == 'hunter' %> %>
+      <%# <% if current_user.is_hunter && current_user.is_realtor %> 
+        <%# <% if session[:role] == 'hunter' %> 
           <%# <%= link_to "Switch to Realtor", switch_role_user_path, :class => "btn btn-outline-warning" %> %>
-        <%# <% elsif %> %>
+        <%# <% elsif %> 
           <%# <%= link_to "Switch to Hunter", switch_role_user_path, :class => "btn btn-outline-warning" %> %>
-        <%# <% end%> %>
-      <%# <% end %> %>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class=>"btn btn-outline-danger" %>        
+        <%# <% end%> 
+      <%# <% end %> 
+      <%= link_to "Logout", user_edit_path(current_user.id),  method: :delete, :class=>"btn btn-outline-danger" %>        
     </li>
-  <%# <% end %> %>
+  <%# <% end %> 
+  <%# destroy_user_session_path, %>
 </nav>
