@@ -3,7 +3,8 @@
 
 <h1>Editing User</h1>
 
-<%= render 'form', user: @user %>
+<%= form_for @user, url: { :action => "update" } do |form| %>
+<%= render 'form', { f: form , user: @user} %>
+<%end%>
 
-<%= link_to 'Show', @user %> |
 <%= link_to 'Back', users_path %>

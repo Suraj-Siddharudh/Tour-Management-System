@@ -39,6 +39,10 @@ gem 'city-state'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Gem for Omniauth
+gem 'omniauth' 
+gem 'omniauth-google-oauth2'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
@@ -60,5 +64,8 @@ group :test do
   gem 'chromedriver-helper'
 end
 
+group :production do
+  gem 'pg'
+  end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
