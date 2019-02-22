@@ -17,8 +17,7 @@
           <%# <%= link_to "Switch to Hunter", switch_role_user_path, :class => "btn btn-outline-warning" %> %>
         <%# <% end%> 
       <%# <% end %> 
-      <%= link_to "Logout", user_edit_path(current_user.id),  method: :delete, :class=>"btn btn-outline-danger" %>        
+      <%= link_to "Logout", destroy_user_session_path,  method: :delete, :class=>"btn btn-outline-danger" %>        
     </li>
   <%# <% end %> 
-  <%# destroy_user_session_path, %>
 </nav>
