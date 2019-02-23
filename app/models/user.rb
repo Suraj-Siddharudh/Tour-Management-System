@@ -20,6 +20,8 @@ class User < ApplicationRecord
         provider: auth.provider,
         email: auth.info.email,
         uid: auth.uid ,
+        is_agent: 0,
+        is_customer: 1,
         password: Devise.friendly_token[0,20],
       )
     end

@@ -3,7 +3,7 @@
 <%= render "partials/navbar" %>
 <div class="container" style="margin-top:20px">
   <div class="jumbotron">
-    <h1 class="display-4">Hello, Jai<%#<%= current_user.first_name %></h1>
+    <h1 class="display-4">Hello,<%= current_user.first_name%></h1>
     <p class="lead">Welcome to Tour </p>
     <hr class="my-4">
     <div class="list-group">
@@ -11,6 +11,9 @@
 
       <%= link_to 'View Tours', tours_path, :class => "list-group-item list-group-item-action"%>
       <%= link_to 'View Users', users_path, :class => "list-group-item list-group-item-action"%>
+      <%= link_to 'Add User', { :controller => :users, :action => :new }, :class => "list-group-item list-group-item-action"%>
+      <%# <%= link_to 'My Enquiries', queries_path, :class => "list-group-item list-group-item-action"%> %>
+      <%# <%= link_to 'View Companies', companies_path, :class=>"list-group-item list-group-item-action"  %> %>
       
       <%# <%= link_to 'My Enquiries', queries_path, :class => "list-group-item list-group-item-action"%> 
       <%# <%= link_to 'View Companies', companies_path, :class=>"list-group-item list-group-item-action"  %> 

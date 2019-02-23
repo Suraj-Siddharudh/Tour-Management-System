@@ -8,7 +8,8 @@
       <th>First Name</th>
       <th>Last Name</th>
       <th>Email</th>
-      <th>Access Level</th>
+      <th>Is Customer</th>
+      <th>Is Agent</th>
       <th>Phone Number</th>
 
       <th colspan="3"></th>
@@ -21,7 +22,8 @@
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.email %></td>
-        <td><%= user.access_control %></td>
+        <td><%= user.is_customer %></td>
+        <td><%= user.is_agent %></td>
         <td><%= user.phone_number %></td>
 
         <td><%= link_to 'Edit', {:controller => :users, :action => :edit, :id => user.id , :class => "btn btn-success"} %></td>

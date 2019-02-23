@@ -39,9 +39,11 @@ ActiveRecord::Schema.define(version: 2019_02_22_015433) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "phone_number"
-    t.integer "access_control", default: 2
+    t.integer "is_agent"
+    t.integer "is_customer"
     t.string "first_name"
     t.string "last_name"
+    t.string "role"
     t.string "provider"
     t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
