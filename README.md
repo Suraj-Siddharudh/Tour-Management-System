@@ -70,3 +70,5 @@ Your app will run on http://localhost:3000
   - Suraj Siddharudh - ssiddha
   - Aishwarya Tirumala - atiruma
 
+# Note 
+All commits are in dev_branch and not master
