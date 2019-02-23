@@ -1,0 +1,86 @@
+<%= form_with(model: tour, local: true) do |form| %>
+  <% if tour.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tour.errors.count, "error") %> prohibited this tour from being saved:</h2>
+
+      <ul>
+      <% tour.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :Name %>
+    <%= form.text_field :Name , :class => "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Description %>
+    <%= form.text_area :Description, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Price %>
+    <%= form.text_field :Price, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :start_date %>
+    <%= form.date_field :start_date, min: 1.month.from_now , :class => "form-control"%>
+  </div>
+
+   <div class="form-group">
+    <%= form.label :end_date %>
+    <%= form.date_field :end_date, max: 2.month.from_now, min: 45.days.from_now, :class => "form-control" %>
+  </div>
+
+   <div class="form-group">
+    <%= form.label :pickup %>
+    <%= form.text_field :pickup , :class => "form-control"%>
+  </div>
+
+   <div class="form-group">
+    <%= form.label :total_seats %>
+    <%= form.text_field :total_seats, :class => "form-control" %>
+  </div>
+
+   <div class="form-group">
+    <%= form.label :avail_seats %>
+    <%= form.text_field :avail_seats, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :avail_waitlist %>
+    <%= form.text_field :avail_waitlist, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :status %>
+    <%= form.radio_button :status, 'Active' %> Active<br />
+    <%= form.radio_button :status, 'Completed' %> Completed<br />
+  </div>
+
+  <div class="form-group">
+    <%= form.label :booking_deadline %>
+    <%= form.datetime_field :booking_deadline, :class => "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :countries %>
+    <%= form.text_field :countries , :class => "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :states %>
+    <%= form.text_field :states, :class => "form-control" %>
+  </div>
+
+  <div class="actions">
+    <div class="form-group">
+      <%= form.submit :class=> "btn btn-success" %>
+      <%# <%= link_to 'Back', tours_path, :class=>"btn btn-secondary" %> 
+    </div>
+  </div>
+<% end %>

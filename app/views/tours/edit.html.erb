@@ -1,0 +1,9 @@
+<% provide(:title, "Home") %>
+<%= render "partials/navbar" %>
+
+<h1>Editing Tour</h1>
+
+<%= render 'form', tour: @tour %>
+
+<%= link_to 'Show', @tour %> |
+<%= link_to 'Back', tours_path %>

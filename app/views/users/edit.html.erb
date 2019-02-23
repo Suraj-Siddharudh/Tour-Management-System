@@ -1,0 +1,10 @@
+<% provide(:title, "Home") %>
+<%= render "partials/navbar" %>
+
+<h1>Editing User</h1>
+
+<%= form_for @user, url: { :action => "update" } do |form| %>
+<%= render 'form', { f: form , user: @user} %>
+<%end%>
+
+<%= link_to 'Back', users_path %>
