@@ -41,7 +41,7 @@
           <td><%= tour.countries %></td>
           <td><%= tour.states %></td>
           <td><%= link_to 'Show', tour %></td>
-          <td><%= link_to 'Book', tour %></td>
+          <td><%= link_to 'Book', new_booking_path(@booking) %></td>
           <td><%= link_to 'Edit', edit_tour_path(tour) %></td>
           <td><%= link_to 'Destroy', tour, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>

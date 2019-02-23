@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :bookings
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks", registrations: "users/registrations"}
   resources :tours
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
