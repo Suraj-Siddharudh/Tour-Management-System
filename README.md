@@ -21,10 +21,11 @@ To run the app locally, follow these steps:
 - Clone the repository on your local machine.
 git clone https://github.com/Suraj-Siddharudh/Toor-Management-System.git
 
+-Checkout to dev_branch
+git checkout dev_branch
+
 - Go to the directory of the project where it is cloned using terminal
 
-cd Desktop/RealEstateApp
-```
 
 
 - Install gems
