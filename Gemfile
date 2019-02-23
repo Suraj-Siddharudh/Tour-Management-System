@@ -38,7 +38,8 @@ gem 'devise'
 gem 'city-state'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'bootstrap'
+gem 'jquery-rails'
 # Gem for Omniauth
 gem 'omniauth' 
 gem 'omniauth-google-oauth2'
