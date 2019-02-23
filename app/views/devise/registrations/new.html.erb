@@ -19,14 +19,10 @@
     <%= f.text_field :phone_number, autocomplete: "number" %>
 </div>
 
-  <div class="field">
-   <%= f.label :role %>
-    <h2>Role Jai</h2>
-    <%= f.radio_button :is_customer , 'Customer', :checked => true%>
-    <%= f.label :role, 'Customer'%><br/>
-    <%= f.radio_button :is_agent, 'Agent'%>
-    <%= f.label :role, 'Agent'%><br/>
-
+ <div class="field">
+    <%= f.label :role %>
+    <%= f.radio_button :role, 'Customer' %> Customer<br />
+    <%= f.radio_button :role, 'Agent' %> Agent<br />
   </div>
 
   <div class="field">
@@ -43,7 +39,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" :class => "btn btn-success"%>
+    <%= f.submit "Sign up" %>
   </div>
 <% end %>
 

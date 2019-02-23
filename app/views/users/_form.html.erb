@@ -30,14 +30,12 @@
     <%= f.label :phone_number%>
     <%= f.text_field :phone_number %>
   </div>
-  <div class="field">
-   <%= f.label :role %>
-    <h2>Role Jai</h2>
-    <%= f.radio_button :is_customer , 'Customer', :checked => true%>
-    <%= f.label :role, 'Customer'%><br/>
-    <%= f.radio_button :is_agent, 'Agent'%>
-    <%= f.label :role, 'Agent'%><br/>
 
+  <div class="field">
+    <%= f.label :role %>
+    <%= f.radio_button :role, 'Customer' %> Customer<br />
+    <%= f.radio_button :role, 'Agent' %> Agent<br />
+  </div>
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
@@ -53,6 +51,6 @@
 
   </div>
   <div class="actions">
-    <%= f.submit :class => "btn btn-success"%>
+    <%= f.submit%>
   </div>
 

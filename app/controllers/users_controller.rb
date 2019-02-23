@@ -27,6 +27,14 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
+    if @user.role.eql? "Customer"
+      @user.is_customer = 1
+      @user.is_agent = 0
+    else
+      @user.is_customer = 0
+      @user.is_agent = 1
+    end
+
     respond_to do |format|
       if @user.save
         format.html { redirect_to root_path, notice: 'User was successfully created.' }
@@ -83,6 +91,6 @@ end
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.fetch(:user, {})
-      params.require(:user).permit(:first_name, :last_name, :email, :is_customer, :is_agent, :password, :password_confirmation)
+      params.require(:user).permit(:first_name, :last_name, :role, :email, :is_customer, :phone_number, :is_agent, :password, :password_confirmation)
     end
 end
