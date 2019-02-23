@@ -11,7 +11,7 @@ We have also added the email feature with the replies to any inquiry and a Googl
  
 ## Deployment 
 
-We have deployed our project on **Heroku**. To view, [click here](https://whispering-coast-30139.herokuapp.com).
+We have deployed our project on **Heroku**. To view, [click here](https://evening-shore-78978.herokuapp.com/ ).
 
 
 ## Local Deployment
@@ -19,34 +19,22 @@ We have deployed our project on **Heroku**. To view, [click here](https://whispe
 To run the app locally, follow these steps:
 
 - Clone the repository on your local machine.
-
-```
-git clone https://github.ncsu.edu/hagrawa2/RealEstateApp
-```
+git clone https://github.com/Suraj-Siddharudh/Toor-Management-System.git
 
 - Go to the directory of the project where it is cloned using terminal
 
-```
 cd Desktop/RealEstateApp
 ```
 
 
 - Install gems
-```
 bundle install
-```
 -  Complete Database Migrations
-```
 rake db:migrate
-```
 - Add pre-configured users
-```
 rake db:seed
-```
 - Run server
-```
 rails server
-```
 Your app will run on http://localhost:3000
 
 
