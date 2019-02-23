@@ -4,11 +4,11 @@
     <%= link_to "Home", root_path, :class => "navbar-brand" %>
   </div>
   <%# <% if(user_signed_in?) %> 
-    <%# <ul class="navbar-nav mr-auto"> %>
-      <%# <li> %>
-        <%# <%= link_to "Profile", user_edit_path(current_user.id), :class=>"btn btn-success"%> 
-      <%# </li> %>
-    <%# </ul> %>
+    <ul class="navbar-nav mr-auto"> %>
+       <li> 
+         <%= link_to "Profile", users_path(current_user.id), :class=>"btn btn-success"%> 
+      </li> 
+     </ul>
     <li style="list-style: none;">
       <%# <% if current_user.is_hunter && current_user.is_realtor %> 
         <%# <% if session[:role] == 'hunter' %> 

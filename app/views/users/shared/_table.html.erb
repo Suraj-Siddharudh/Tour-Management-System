@@ -1,8 +1,8 @@
 
-
+<div class="container">
 <h1>Users</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>First Name</th>
@@ -24,11 +24,12 @@
         <td><%= user.access_control %></td>
         <td><%= user.phone_number %></td>
 
-        <td><%= link_to 'Edit', {:controller => :users, :action => :edit, :id => user.id } %></td>
+        <td><%= link_to 'Edit', {:controller => :users, :action => :edit, :id => user.id , :class => "btn btn-success"} %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+</div>
 

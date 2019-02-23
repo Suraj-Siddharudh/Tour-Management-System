@@ -2,53 +2,54 @@
 <%= render "partials/navbar" %>
 
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <h1>Tours</h1>
 
-<h1>Tours</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Start Date</th>
-      <th>End Date</th>
-      <th>Totals Seats</th>
-      <th>Available Seats</th>
-      <th>Available Waitlist</th>
-      <th>Status</th>
-      <th>Deadline</th>
-      <th>Countries</th>
-      <th>States</th>
-
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tours.each do |tour| %>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= tour.Name %></td>
-        <td><%= tour.Description %></td>
-        <td><%= tour.Price %></td>
-        <td><%= tour.start_date %></td>
-        <td><%= tour.end_date %></td>
-        <td><%= tour.total_seats %></td>
-        <td><%= tour.avail_seats %></td>
-        <td><%= tour.avail_waitlist %></td>
-        <td><%= tour.status %></td>
-        <td><%= tour.booking_deadline %></td>
-        <td><%= tour.countries %></td>
-        <td><%= tour.states %></td>
-        <td><%= link_to 'Show', tour %></td>
-        <td><%= link_to 'Book', tour %></td>
-        <td><%= link_to 'Edit', edit_tour_path(tour) %></td>
-        <td><%= link_to 'Destroy', tour, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Totals Seats</th>
+        <th>Available Seats</th>
+        <th>Available Waitlist</th>
+        <th>Status</th>
+        <th>Deadline</th>
+        <th>Countries</th>
+        <th>States</th>
+
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @tours.each do |tour| %>
+        <tr>
+          <td><%= tour.Name %></td>
+          <td><%= tour.Description %></td>
+          <td><%= tour.Price %></td>
+          <td><%= tour.start_date %></td>
+          <td><%= tour.end_date %></td>
+          <td><%= tour.total_seats %></td>
+          <td><%= tour.avail_seats %></td>
+          <td><%= tour.avail_waitlist %></td>
+          <td><%= tour.status %></td>
+          <td><%= tour.booking_deadline %></td>
+          <td><%= tour.countries %></td>
+          <td><%= tour.states %></td>
+          <td><%= link_to 'Show', tour %></td>
+          <td><%= link_to 'Book', tour %></td>
+          <td><%= link_to 'Edit', edit_tour_path(tour) %></td>
+          <td><%= link_to 'Destroy', tour, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Tour', new_tour_path %>
+  <br>
+
+  <%= link_to 'New Tour', new_tour_path , :class => "btn btn-success"%>
+ </div> 
