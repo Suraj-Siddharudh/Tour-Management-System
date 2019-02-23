@@ -5,9 +5,9 @@
 
 The project is done using the concepts of Ruby on Rails for development for the fulfillment of the requirements of Assignment 2 of CSC 517 Object Oriented Design and Development. 
 
-The purpose of this project is to design a portal for booking tours. In the project, there are two access models: agent and users. Users can create tours and edit their tours. Agents can edit the bookings of the users, the user details and
+The purpose of this project is to design a portal for booking tours. In the project, there are two access models: agent and users. Users can create tours and edit their tours. Agents can edit the bookings of the users and the tours and user details.
 
-We have also added the email feature with the replies to any inquiry and a Google login feature with only NC State email ids.
+We have also added the email feature with confirmations and a Google login feature with only NC State email ids.
  
 ## Deployment 
 
