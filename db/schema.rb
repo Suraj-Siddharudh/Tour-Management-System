@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_24_040015) do
+ActiveRecord::Schema.define(version: 2019_02_23_001221) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "no_of_seats"
