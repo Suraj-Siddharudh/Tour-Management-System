@@ -12,5 +12,8 @@ Rails.application.routes.draw do
     match '/user/:id', to: 'users#destroy', via: 'delete'
   
   match '/users', to: 'users#index', via: 'get'
+
+  match '/agents', to: 'users#agent', via: 'get'
+  match '/customers', to: 'users#customer', via: 'get'
   root to: 'tour_app#index'
 end
