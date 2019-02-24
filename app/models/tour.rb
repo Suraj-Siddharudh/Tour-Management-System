@@ -1,4 +1,4 @@
 class Tour < ApplicationRecord
 	belongs_to :user, optional: true 
-	bas_many :bookings
+	has_many :bookings
 end
