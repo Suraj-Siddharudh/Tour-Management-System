@@ -6,17 +6,13 @@ class User < ApplicationRecord
          :omniauthable, :omniauth_providers => [:google]
 
  validates_presence_of :email, :first_name
-<<<<<<< HEAD
 #  validates :password, length: { in: 6..20 }, confirmation: true
 
 validates_format_of :phone_number,
 :with => /\(?[0-9]{3}\)?-[0-9]{3}-[0-9]{4}/,
 :message => "- Phone numbers must be in xxx-xxx-xxxx format."
- has_many :tour
-=======
  has_many :tours
  has_many :bookings
->>>>>>> 622e04e25264be8e8c4c371e90e3b1c1f9185f4d
 
  def self.from_omniauth(auth)
   user = User.where(:provider => auth.provider, :uid => auth.uid ).first
