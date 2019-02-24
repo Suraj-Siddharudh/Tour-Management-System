@@ -25,7 +25,7 @@ class ToursController < ApplicationController
   # POST /tours.json
   def create
     @tour = Tour.new(tour_params)
-    @tour.users_id = current_user.id
+    @tour.user_id = current_user.id
     respond_to do |format|
       if @tour.save
         format.html { redirect_to @tour, notice: 'Tour was successfully created.' }
