@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :validate_user, only: [:show, :update, :destroy, :index, :new], :if => lambda{ Rails.env.test?}
+  before_action :authenticate_user!
 
   # GET /users
   # GET /users.json
@@ -53,6 +55,26 @@ class UsersController < ApplicationController
     end
   end
 
+  def customer
+    #Remove ! from user_signed_in when adding check for admin
+    if !user_signed_in? #&& !current_user.is_admin
+      respond_to do |format|
+        format.html { redirect_to root_path }
+      end
+    end
+    @users= User.where(is_customer: 1)
+  end
+
+  def agent 
+    #Remove ! from user_signed_in when adding check for admin
+    if !user_signed_in? #&& !current_user.is_admin
+      respond_to do |format|
+        format.html { redirect_to root_path }
+      end
+    end
+    @users= User.where(is_agent: 1)
+  end
+
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
@@ -95,6 +117,16 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+end
+
+def validate_user
+  if !user_signed_in?
+    redirect_to root_path
+  end
+
+  if @user != @current_user
+    redirect_to root_path
+  end
 end
 
   private
