@@ -26,6 +26,7 @@
         <td><%= user.phone_number %></td>
 
         <td><%= link_to 'Edit', {:controller => :users, :action => :edit, :id => user.id , :class => "btn btn-success"} %></td>
+        <td> <%= link_to 'Destroy', admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
       </tr>
     <% end %>
   </tbody>
