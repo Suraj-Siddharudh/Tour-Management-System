@@ -20,6 +20,13 @@ class UsersController < ApplicationController
 
   # GET /user/1/edit
   def edit
+    if @user.role.eql? "Customer"
+      @user.is_customer = 1
+      @user.is_agent = 0
+    else
+      @user.is_customer = 0
+      @user.is_agent = 1
+    end
   end
 
   # POST /users
@@ -49,6 +56,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -71,6 +79,13 @@ class UsersController < ApplicationController
   end
 
   def update
+    if @user.role.eql? "Customer"
+      @user.is_customer = 1
+      @user.is_agent = 0
+    else
+      @user.is_customer = 0
+      @user.is_agent = 1
+    end
     respond_to do |format|
       if @user.update_without_password(user_params)
         format.html { redirect_to root_path, notice: 'User was successfully updated.' }

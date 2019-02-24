@@ -24,7 +24,13 @@
     <%= f.radio_button :role, 'Customer' %> Customer<br />
     <%= f.radio_button :role, 'Agent' %> Agent<br />
   </div>
-
+<% if :role.eql?'Customer' %>
+  <%=f.hidden_field :is_customer, value: 1%>
+  <%=f.hidden_field :is_agent, value: 0%>
+<%else%>
+  <%=f.hidden_field :is_customer, value:0%>
+  <%=f.hidden_field :is_agent, value:1%>
+<%end%>
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>

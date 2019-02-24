@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2019_02_23_001221) do
     t.integer "total_seats"
     t.integer "avail_seats"
     t.integer "avail_waitlist"
-    t.string "status"
+    t.boolean "status"
     t.datetime "booking_deadline"
     t.text "countries"
     t.text "states"
