@@ -16,7 +16,7 @@
   </thead>
 
   <tbody>
-    <% @users.each do |user| %>
+    <% @users.each do |user| if !user.is_admin %>
       <tr>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
@@ -28,6 +28,7 @@
         <td><%= link_to 'Edit', {:controller => :users, :action => :edit, :id => user.id , :class => "btn btn-success"} %></td>
         <td> <%= link_to 'Destroy', admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
       </tr>
+    <% end %>
     <% end %>
   </tbody>
 </table>

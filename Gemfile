@@ -45,6 +45,9 @@ gem 'city-state'
 gem 'omniauth' 
 gem 'omniauth-google-oauth2'
 
+# Gem to seed the DB
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

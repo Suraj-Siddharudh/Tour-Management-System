@@ -8,9 +8,7 @@ class User < ApplicationRecord
  validates_presence_of :email, :first_name
 #  validates :password, length: { in: 6..20 }, confirmation: true
 
-validates_format_of :phone_number,
-:with => /\(?[0-9]{3}\)?-[0-9]{3}-[0-9]{4}/,
-:message => "- Phone numbers must be in xxx-xxx-xxxx format."
+
  has_many :tours
  has_many :bookings
 
