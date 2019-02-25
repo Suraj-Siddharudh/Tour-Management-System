@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :bookmarks
   resources :bookings
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks", registrations: "users/registrations"}
   resources :tours

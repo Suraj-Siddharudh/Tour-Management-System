@@ -1,0 +1,55 @@
+<%= render "partials/navbar" %>
+<p id="notice"><%= notice %></p>
+
+
+<div class="container">
+  <h1>Bookmarked Users / Bookmarks</h1>
+
+  <table class="table">
+  <%# <% if session[:role] == 'hunter' %>
+    <%# <thead> %>
+      <%# <tr> %>
+        <%# <th>Property</th> %>
+        <%# <th colspan="1"></th> %>
+      <%# </tr> %>
+    <%# </thead> %>
+
+    <%# <tbody> %>
+      <%# <% @bookmarks.each do |bookmark| %> 
+        <%# <tr> %>
+          <%# <td><%= Property.find(bookmark.property_id).address %></td> 
+          <%# <td><%= link_to 'Show', bookmark %></td> 
+        <%# </tr> %>
+      <%# <% end %> 
+    <%# </tbody> %>
+  <%# <% else %> 
+    <thead>
+      <tr>
+        <th>Tour</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @bookmarks.each do |bookmark| %>
+        <tr>
+          <td><%= Tour.find(bookmark.tour_id).Name %></td>
+          <td><%= User.find(bookmark.user_id).phone_number %></td>
+          <td><%= User.find(bookmark.user_id).email %></td>
+          <td><%= link_to 'Show', bookmark %></td>
+          <% if current_user.is_admin %>
+          <td><%= link_to 'Destroy', bookmark, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+    <%# <% end %>
+</table>
+
+<br>
+<% if current_user.is_admin %>
+<%= link_to 'New Potential Buyer', new_bookmark_path %>
+  <%end %>
+</div>

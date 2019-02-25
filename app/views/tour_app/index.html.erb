@@ -10,8 +10,6 @@
       <%# All %>
 
       <%= link_to 'View Tours', tours_path, :class => "list-group-item list-group-item-action"%>
-      <%= link_to 'View Users', users_path, :class => "list-group-item list-group-item-action"%>
-      <%= link_to 'Add User', { :controller => :users, :action => :new }, :class => "list-group-item list-group-item-action"%>
       <%# <%= link_to 'My Enquiries', queries_path, :class => "list-group-item list-group-item-action"%>
       <%# <%= link_to 'View Companies', companies_path, :class=>"list-group-item list-group-item-action"  %> 
       
@@ -19,8 +17,8 @@
       <%# <%= link_to 'View Companies', companies_path, :class=>"list-group-item list-group-item-action"  %> 
 
       <%# <% if session[:role] == 'hunter' %> 
-        <%# <%= link_to 'My Wishlist', potential_buyers_path, :class=>"list-group-item list-group-item-action"  %> 
-      <%# <% end %> 
+        <%= link_to 'My Bookmarks', bookmarks_path, :class=>"list-group-item list-group-item-action"  %>
+      <%# <% end  %>
 
       <%# Admin & Realtor %>
       <%# <% if  session[:role] == 'realtor' || current_user.is_admin %> 
@@ -30,9 +28,11 @@
 
       <%# Admin Features%>
       <%# <% if current_user.is_admin %> 
-        <%# <%= link_to 'List of Potential Buyers', potential_buyers_path, :method => 'get', :class => "list-group-item list-group-item-action" %>
+        <%= link_to 'List of Bookmarked Users', bookmarks_path, :method => 'get', :class => "list-group-item list-group-item-action"%>
         <%# <%= link_to 'Add User', { :controller => :users, :action => :new }, :class => "list-group-item list-group-item-action"%> 
         <%# <%= link_to 'View Users', users_path, :class=>"list-group-item list-group-item-action"  %>
+        <%= link_to 'View Users', users_path, :class => "list-group-item list-group-item-action"%>
+        <%= link_to 'Add User', { :controller => :users, :action => :new }, :class => "list-group-item list-group-item-action"%>
         <%= link_to 'View Agents', agents_path, :class => "list-group-item list-group-item-action" %>
         <%= link_to 'View Customers', customers_path, :class => "list-group-item list-group-item-action" %> 
       <%# <% end %> 
