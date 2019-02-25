@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_25_001617) do
+ActiveRecord::Schema.define(version: 2019_02_25_232625) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "no_of_seats"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_001617) do
     t.text "countries"
     t.text "states"
     t.integer "user_id"
+    t.string "image"
     t.index ["user_id"], name: "index_tours_on_user_id"
   end
 

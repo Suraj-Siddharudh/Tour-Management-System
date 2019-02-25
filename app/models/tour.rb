@@ -7,4 +7,5 @@ class Tour < ApplicationRecord
 	#Removing validation on avail seats and waitlist
 	has_many :bookings
 	mount_uploader :image, ImageUploader
+	serialize :image, JSON
 end

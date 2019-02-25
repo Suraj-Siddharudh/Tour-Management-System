@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+ .mytooltip {
+    cursor: help;
+    color: green;
+    border-bottom: 1px dotted green
+    }
