@@ -43,12 +43,12 @@
           <td><%= link_to 'Show', tour %></td>
           <td><%= link_to 'Book', new_booking_path(:tour_id => tour,:user_id => current_user) %></td>
           
-          <%# <% if current_user.is_admin || ( current_user.is_realtor && session[:role] == 'realtor' && current_user.company_id == property.company_id ) %> 
+          <% if current_user.is_admin || ( current_user.is_agent && current_user == tour ) %> 
               <td><%= link_to 'Edit', edit_tour_path(tour) %></td>
-          <%# <%end %> 
-          <%# <% if current_user.is_admin || ( current_user.is_realtor && session[:role] == 'realtor' && current_user.company_id == property.company_id ) %> 
+          <%end %> 
+          <% if current_user.is_admin || ( current_user.is_agent && current_user == tour ) %>  
               <td><%= link_to 'Destroy', tour, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <%# <% end %> 
+          <% end %> 
           
         </tr>
       <% end %>

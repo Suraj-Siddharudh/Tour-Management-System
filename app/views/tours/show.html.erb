@@ -65,12 +65,12 @@
       <%= link_to 'Interested', bookmarks_path(tour_id: @tour.id), :method => 'post', :class=>"btn btn-success" %>
     <% end %>
 
-    <% if current_user.is_admin || ( current_user.is_agent ) %>
+    <% if current_user.is_admin || ( current_user.is_agent && current_user.id == @tour.user_id) %>
         <%= link_to 'List of Bookmarked Users', bookmarks_path(tour_id: @tour.id), :method => 'get', :class=>"btn btn-success" %>
     <% end %>
     
-    <% if current_user.is_admin || ( current_user.is_agent ) %>
+    <% if current_user.is_admin || ( current_user.is_agent && current_user.id == @tour.user_id) %>
         <%= link_to 'Edit', edit_tour_path(@tour) %>
     <% end %>
- |
+    
 <%= link_to 'Back', tours_path %>

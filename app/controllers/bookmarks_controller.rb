@@ -6,9 +6,9 @@ class BookmarksController < ApplicationController
   def index
     if current_user.is_admin
       @bookmarks = Bookmark.all
-    # elsif session[:role] == 'realtor'
-    #   property_id = Property.where(company_id: current_user.company_id).pluck(:id)
-    #   @potential_buyers = PotentialBuyer.where(property_id: property_id)
+    elsif current_user.is_agent
+      tour_owner = Tour.where(id: params[:tour_id]).pluck(:user_id)
+      @bookmarks = Bookmark.where(tour_id: params[:tour_id]).where(user_id: tour_owner)
     elsif current_user.is_customer
       @bookmarks = Bookmark.where(user_id: current_user.id)
     end
