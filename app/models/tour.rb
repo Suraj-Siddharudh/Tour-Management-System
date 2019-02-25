@@ -6,4 +6,5 @@ class Tour < ApplicationRecord
 	# validates_numericality_of :avail_waitlist, :Price, greater_than: 0, presence: true
 	#Removing validation on avail seats and waitlist
 	has_many :bookings
+	mount_uploader :image, ImageUploader
 end

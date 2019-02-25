@@ -61,7 +61,10 @@
       <strong>States:</strong>
       <%= @tour.states %>
     </p>
+
+    <%= image_tag(@tour.image.url, alt: 'Image') if @tour.image? %>
     
+
     <% if current_user.is_admin || ( current_user.is_customer ) %>
       <%= link_to 'Interested', bookmarks_path(tour_id: @tour.id), :method => 'post', :class=>"btn btn-success" %>
     <% end %>
