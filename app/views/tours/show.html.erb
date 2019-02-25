@@ -63,6 +63,7 @@
     </p>
 
     <%= image_tag(@tour.image.url, alt: 'Image') if @tour.image? %>
+    <br/><br/>
     
 
     <% if current_user.is_admin || ( current_user.is_customer ) %>
