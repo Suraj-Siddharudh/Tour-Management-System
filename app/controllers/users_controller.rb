@@ -56,8 +56,7 @@ class UsersController < ApplicationController
   end
 
   def customer
-    #Remove ! from user_signed_in when adding check for admin
-    if !user_signed_in? #&& !current_user.is_admin
+    if user_signed_in? && !current_user.is_admin
       respond_to do |format|
         format.html { redirect_to root_path }
       end
@@ -66,8 +65,7 @@ class UsersController < ApplicationController
   end
 
   def agent 
-    #Remove ! from user_signed_in when adding check for admin
-    if !user_signed_in? #&& !current_user.is_admin
+    if user_signed_in? && !current_user.is_admin
       respond_to do |format|
         format.html { redirect_to root_path }
       end

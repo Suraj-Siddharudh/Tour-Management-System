@@ -75,11 +75,11 @@ Your app will run on http://localhost:3000
     
 
 
-## Contributors
+## Contributors (Alphabetically)
 
+  - Aishwarya Tirumala - atiruma 
   - Pratik Kumar Kundanmal Jain - pjain22
   - Suraj Siddharudh - ssiddha
-  - Aishwarya Tirumala - atiruma
 
 # Note 
 All commits are in dev_branch and not master
