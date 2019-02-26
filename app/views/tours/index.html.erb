@@ -56,6 +56,7 @@
   </table>
 
   <br>
-
+<% if current_user.is_admin || current_user.is_agent%>
   <%= link_to 'New Tour', new_tour_path , :class => "btn btn-success"%>
+  <%end%>
  </div> 
