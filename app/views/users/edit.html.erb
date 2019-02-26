@@ -12,5 +12,8 @@
     <%end%>
     </div>
   </div>
+  <% if !current_user.is_admin%>
+  <%= button_to 'Delete My Account',users_path, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-outline-danger"%>
+  <%end%>
 </div>
 <%= link_to 'Back', users_path, :class => "btn btn-secondary float-right" %>

@@ -27,15 +27,13 @@
       <%# <% end %> 
 
       <%# Admin Features%>
-      <%# <% if current_user.is_admin %> 
+      <% if current_user.is_admin %>
         <%= link_to 'List of Bookmarked Users', bookmarks_path, :method => 'get', :class => "list-group-item list-group-item-action"%>
-        <%# <%= link_to 'Add User', { :controller => :users, :action => :new }, :class => "list-group-item list-group-item-action"%> 
-        <%# <%= link_to 'View Users', users_path, :class=>"list-group-item list-group-item-action"  %>
         <%= link_to 'View Users', users_path, :class => "list-group-item list-group-item-action"%>
         <%= link_to 'Add User', { :controller => :users, :action => :new }, :class => "list-group-item list-group-item-action"%>
         <%= link_to 'View Agents', agents_path, :class => "list-group-item list-group-item-action" %>
         <%= link_to 'View Customers', customers_path, :class => "list-group-item list-group-item-action" %> 
-      <%# <% end %> 
+      <% end %>
     </div>
   </div>
 </div>
