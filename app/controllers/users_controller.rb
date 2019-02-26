@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :validate_user, only: [:show, :update, :destroy, :index, :new], :if => lambda{ Rails.env.test?}
+  before_action :authenticate_user!
 
   # GET /users
   # GET /users.json
@@ -20,6 +22,13 @@ class UsersController < ApplicationController
 
   # GET /user/1/edit
   def edit
+    if @user.role.eql? "Customer"
+      @user.is_customer = 1
+      @user.is_agent = 0
+    else
+      @user.is_customer = 0
+      @user.is_agent = 1
+    end
   end
 
   # POST /users
@@ -46,9 +55,28 @@ class UsersController < ApplicationController
     end
   end
 
+  def customer
+    if user_signed_in? && !current_user.is_admin
+      respond_to do |format|
+        format.html { redirect_to root_path }
+      end
+    end
+    @users= User.where(is_customer: 1)
+  end
+
+  def agent 
+    if user_signed_in? && !current_user.is_admin
+      respond_to do |format|
+        format.html { redirect_to root_path }
+      end
+    end
+    @users= User.where(is_agent: 1)
+  end
+
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -71,6 +99,13 @@ class UsersController < ApplicationController
   end
 
   def update
+    if @user.role.eql? "Customer"
+      @user.is_customer = 1
+      @user.is_agent = 0
+    else
+      @user.is_customer = 0
+      @user.is_agent = 1
+    end
     respond_to do |format|
       if @user.update_without_password(user_params)
         format.html { redirect_to root_path, notice: 'User was successfully updated.' }
@@ -80,6 +115,16 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+end
+
+def validate_user
+  if !user_signed_in?
+    redirect_to root_path
+  end
+
+  if @user != @current_user
+    redirect_to root_path
+  end
 end
 
   private

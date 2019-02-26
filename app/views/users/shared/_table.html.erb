@@ -1,6 +1,5 @@
 
 <div class="container">
-<h1>Users</h1>
 
 <table class="table">
   <thead>
@@ -17,7 +16,7 @@
   </thead>
 
   <tbody>
-    <% @users.each do |user| %>
+    <% @users.each do |user| if !user.is_admin %>
       <tr>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
@@ -27,7 +26,9 @@
         <td><%= user.phone_number %></td>
 
         <td><%= link_to 'Edit', {:controller => :users, :action => :edit, :id => user.id , :class => "btn btn-success"} %></td>
+        <td> <%= link_to 'Destroy', admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
       </tr>
+    <% end %>
     <% end %>
   </tbody>
 </table>

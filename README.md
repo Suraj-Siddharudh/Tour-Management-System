@@ -13,6 +13,13 @@ We have also added the email feature with confirmations and a Google login featu
 
 We have deployed our project on **Heroku**. To view, [click here](https://evening-shore-78978.herokuapp.com/ ).
 
+## Credentials
+
+| Role | Email | Password | Notes |
+| --- | --- | --- | --- |
+| Admin | admin@touringapp.com | admin123 | Cannot be deleted |
+| Customer | customer@touringapp.com | customer123 | Unless deleted by someone |
+| Agent | agent@touringapp.com | agent123 | Unless deleted by someone |
 
 ## Local Deployment
 
@@ -40,24 +47,39 @@ Your app will run on http://localhost:3000
 
 
 ## Features created
-  - Log in to the system
-  - Sign up
-  - Log in using google auth
-  - View tours
-  - Edit users
-  - Create, show, edit, update and delete tours
-  - Users can be added, viewed and edited.
-  - View the details (except password) of other users
-  - View the list of tours along with detailed information
-  - Make a booking reservation.
+### Admin
+   - Log in with an email and password.
+   - Edit profile
+   - Create agent and customer accounts (users).
+   - View the list of all users and their profile details (except password).
+   - Edit or delete users (agents or customers) from the system
+
+### Agent
+  - Login with email and password.
+  - List a tour.  
+  - Edit/update/delete/cancel tours that they have posted. 
+  - Cannot edit tours posted by other agents.
+  - View all tours (including those listed by others).
+  - Upload and delete pictures of tours that they themselves have listed. 
+  - View list of all customers who have bookmarked a tour (created by them).
+  - Agent should be able to delete his own account.
+
+### Customer
+  - Log in with email and password.
+  - Bookmark tours they are interested in.
+  - View information about tours
+  - Customer should be able to delete his own account.
+
+### Miscellaneous
+   - All users can use their **Google account** with NCSU email id to log into the system
     
 
 
-## Contributors
+## Contributors (Alphabetically)
 
+  - Aishwarya Tirumala - atiruma 
   - Pratik Kumar Kundanmal Jain - pjain22
   - Suraj Siddharudh - ssiddha
-  - Aishwarya Tirumala - atiruma
 
 # Note 
 All commits are in dev_branch and not master

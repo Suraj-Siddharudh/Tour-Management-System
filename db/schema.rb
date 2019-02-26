@@ -10,16 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_23_001221) do
+ActiveRecord::Schema.define(version: 2019_02_25_232625) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "no_of_seats"
-    t.integer "users_id"
-    t.integer "tours_id"
+    t.integer "user_id"
+    t.integer "tour_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tours_id"], name: "index_bookings_on_tours_id"
-    t.index ["users_id"], name: "index_bookings_on_users_id"
+    t.index ["tour_id"], name: "index_bookings_on_tour_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "tour_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tours", force: :cascade do |t|
@@ -38,8 +45,9 @@ ActiveRecord::Schema.define(version: 2019_02_23_001221) do
     t.datetime "booking_deadline"
     t.text "countries"
     t.text "states"
-    t.integer "users_id"
-    t.index ["users_id"], name: "index_tours_on_users_id"
+    t.integer "user_id"
+    t.string "image"
+    t.index ["user_id"], name: "index_tours_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,13 +59,14 @@ ActiveRecord::Schema.define(version: 2019_02_23_001221) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "phone_number"
-    t.integer "is_agent"
-    t.integer "is_customer"
+    t.boolean "is_agent"
+    t.boolean "is_customer"
     t.string "first_name"
     t.string "last_name"
     t.string "role"
     t.string "provider"
     t.string "uid"
+    t.boolean "is_admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

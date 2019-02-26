@@ -25,7 +25,7 @@ class ToursController < ApplicationController
   # POST /tours.json
   def create
     @tour = Tour.new(tour_params)
-    @tour.users_id = current_user.id
+    @tour.user_id = current_user.id
     respond_to do |format|
       if @tour.save
         format.html { redirect_to @tour, notice: 'Tour was successfully created.' }
@@ -69,6 +69,6 @@ class ToursController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tour_params
-      params.require(:tour).permit(:Name, :Description, :Price, :start_date, :end_date, :pickup, :total_seats, :avail_seats, :avail_waitlist, :status, :booking_deadline, :countries, :states, :user_id)
+      params.require(:tour).permit(:Name, :Description, :Price, :start_date, :end_date, :pickup, :total_seats, :avail_seats, :avail_waitlist, :status, :booking_deadline, :countries, :states, :user_id, :image)
     end
 end

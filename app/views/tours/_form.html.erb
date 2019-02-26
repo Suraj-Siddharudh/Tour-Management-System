@@ -1,4 +1,4 @@
-<%= form_with(model: tour, local: true) do |form| %>
+<%= form_with(model: tour, local: true, :html => {multipart: true}) do |form| %>
   <% if tour.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(tour.errors.count, "error") %> prohibited this tour from being saved:</h2>
@@ -28,12 +28,12 @@
 
   <div class="form-group">
     <%= form.label :start_date %>
-    <%= form.date_field :start_date, min: 1.month.from_now , :class => "form-control"%>
+    <%= form.date_field :start_date, min: Date.today , :class => "form-control"%>
   </div>
 
    <div class="form-group">
     <%= form.label :end_date %>
-    <%= form.date_field :end_date, max: 2.month.from_now, min: 45.days.from_now, :class => "form-control" %>
+    <%= form.date_field :end_date, min: Date.tomorrow , :class => "form-control" %>
   </div>
 
    <div class="form-group">
@@ -64,17 +64,24 @@
 
   <div class="form-group">
     <%= form.label :booking_deadline %>
-    <%= form.datetime_field :booking_deadline, :class => "form-control"%>
+    <%= form.date_field :booking_deadline, :class => "form-control"%>
   </div>
 
   <div class="form-group">
     <%= form.label :countries %>
+    <%= tooltip "Seperate the countries by a comma", { :tooltip => 'some keywords to categorize your data and help in future searches' }, :class => 'mytooltip' %>
     <%= form.text_field :countries , :class => "form-control"%>
   </div>
 
   <div class="form-group">
     <%= form.label :states %>
+    <%= tooltip "Separate the states by a comma", { :tooltip => 'some keywords to categorize your data and help in future searches' }, :class => 'mytooltip' %>
     <%= form.text_field :states, :class => "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :image %>
+    <%= form.file_field :image %>
   </div>
 
   <div class="actions">

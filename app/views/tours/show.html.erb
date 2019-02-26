@@ -1,66 +1,89 @@
 <% provide(:title, "Home") %>
 <%= render "partials/navbar" %>
+<div class="container" style="margin-top:50px">
+  <div class="card">
+  <div class="card-body">
+    <h3 class="card-title">
+        <%= @tour.Name %>
+    </h3>
 
-<p>
-  <strong>Name:</strong>
-  <%= @tour.Name %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= @tour.Description %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @tour.Description %>
-</p>
+    <p>
+      <strong>Price:</strong>
+      <%= @tour.Price %>
+    </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @tour.Price %>
-</p>
+    <p>
+      <strong>Start Date:</strong>
+      <%= @tour.start_date %>
+    </p>
 
-<p>
-  <strong>Start Date:</strong>
-  <%= @tour.start_date %>
-</p>
+    <p>
+      <strong>End Date:</strong>
+      <%= @tour.end_date %>
+    </p>
 
-<p>
-  <strong>End Date:</strong>
-  <%= @tour.end_date %>
-</p>
+    <p>
+      <strong>Total Seats:</strong>
+      <%= @tour.total_seats %>
+    </p>
 
-<p>
-  <strong>Total Seats:</strong>
-  <%= @tour.total_seats %>
-</p>
+    <p>
+      <strong>Available Seats:</strong>
+      <%= @tour.avail_seats %>
+    </p>
 
-<p>
-  <strong>Available Seats:</strong>
-  <%= @tour.avail_seats %>
-</p>
+    <p>
+      <strong>Waitlist Number:</strong>
+      <%= @tour.avail_waitlist %>
+    </p>
 
-<p>
-  <strong>Available Waitlist:</strong>
-  <%= @tour.avail_waitlist %>
-</p>
+    <p>
+      <strong>Status:</strong>
+      <%= @tour.status %>
+    </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @tour.status %>
-</p>
+    <p>
+      <strong>Booking Deadline:</strong>
+      <%= @tour.booking_deadline %>
+    </p>
 
-<p>
-  <strong>Booking Deadline:</strong>
-  <%= @tour.booking_deadline %>
-</p>
+    <p>
+      <strong>Countries:</strong>
+      <%= @tour.countries %>
+    </p>
 
-<p>
-  <strong>Countries:</strong>
-  <%= @tour.countries %>
-</p>
+    <p>
+      <strong>States:</strong>
+      <%= @tour.states %>
+    </p>
 
-<p>
-  <strong>States:</strong>
-  <%= @tour.states %>
-</p>
+    <%= image_tag(@tour.image.url, alt: 'Image') if @tour.image? %>
+    <br/><br/>
+    
 
-<%= link_to 'Edit', edit_tour_path(@tour) %> |
-<%= link_to 'Book', new_booking_path(@booking) %> |
-<%= link_to 'Back', tours_path %>
+    <% if current_user.is_admin || ( current_user.is_customer ) %>
+      <%= link_to 'Interested', bookmarks_path(tour_id: @tour.id), :method => 'post', :class=>"btn btn-success" %>
+    <% end %>
+
+    <% if current_user.is_admin || ( current_user.is_agent && current_user.id == @tour.user_id) %>
+        <%= link_to 'List of Bookmarked Users', bookmarks_path(tour_id: @tour.id), :method => 'get', :class=>"btn btn-success" %>
+    <% end %>
+    
+    <% if current_user.is_admin || ( current_user.is_agent && current_user.id == @tour.user_id) %>
+        <%= link_to 'Edit', edit_tour_path(@tour), :class=>"btn btn-success"%>
+    <% end %>
+    
+    <br/>
+    <% if current_user.is_admin || ( current_user.is_agent && current_user.id == @tour.user_id) %>
+        <%= button_to 'Destroy', @tour, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-outline-danger"%>
+    <% end %>
+    
+    <%= link_to 'Back', tours_path, :class=>"btn btn-secondary float-right" %>
+    </div>
+  </div>
+</div>
