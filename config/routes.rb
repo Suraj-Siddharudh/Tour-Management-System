@@ -18,4 +18,7 @@ Rails.application.routes.draw do
   match '/agents', to: 'users#agent', via: 'get'
   match '/customers', to: 'users#customer', via: 'get'
   root to: 'tour_app#index'
+
+  match '/tour/search' => 'tours#new_search', :via => 'get', :as => 'new_tour_search'
+  match '/tour/search' => 'tours#search', :via => 'post', :as=> 'tour_search'
 end

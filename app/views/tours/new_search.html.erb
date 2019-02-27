@@ -1,0 +1,23 @@
+<%= form_for :search_params, url:"search" do |form| %>
+
+  <div class="field">
+    <%= form.label 'Name' %><br />
+    <%= form.text_field :Name, autofocus: true %>
+  </div>
+
+  <%# <div class="field">
+    <%= f.label 'Property Size' %><br />
+    <%# <%= f.select :size, size_options, :include_blank => true %>
+  <%# </div> %>
+
+  <%# <div class="field">
+    <%= form.label 'Property Price' %><br />
+    <%# <%= form.select :price, Price_options, :include_blank => true %>
+  <%# </div> %>
+
+  <div class="actions">
+    <%= form.submit "Search" %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', tours_path %>
