@@ -1,6 +1,36 @@
-<h1>Editing Booking</h1>
+<!-- <h1>Editing Booking</h1> -->
+<% provide(:title, "Home") %>
+<%= render "partials/navbar" %>
 
-<%= render 'form', booking: @booking %>
+<%= form_with(model: @booking, local: true) do |form| %>
+  <% if @booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+
+      <ul>
+      <% @booking.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :no_of_seats %>
+    <%= form.number_field :no_of_seats %>
+  </div>
+
+  <div class="field">
+  <% if @overbooked %>
+    Sorry, as of this moment, there aren't enough seats to meet your request. What would you like to do?</P>
+    <%= form.select :option, ["Book only avaialble seats", "Book all avaialble seats and waitlist remaining","Add all seats to Waitlist"] %>
+  <% end %>
+</div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
 
 <%= link_to 'Show', @booking %> |
 <%= link_to 'Back', bookings_path %>
