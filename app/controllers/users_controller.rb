@@ -35,7 +35,18 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
+    puts "--------------------"
+    puts "User===>\n"
+    puts @user.role
+    puts "--------------------"
+    if @user.role.eql?"Customer"
+      @user.is_customer = 1
+      @user.is_agent = 0
+    else
+      @user.is_customer = 0
+      @user.is_agent = 1
+    end
+    
     respond_to do |format|
       if @user.save
         format.html { redirect_to root_path, notice: 'User was successfully created.' }

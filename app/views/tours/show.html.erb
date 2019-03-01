@@ -71,7 +71,7 @@
     <% end %>
 
     <% if current_user.is_admin || ( current_user.is_agent && current_user.id == @tour.user_id) %>
-        <%= button_to 'List of Bookmarked Users', bookmarks_path(tour_id: @tour.id), :method => 'get', :class=>"btn btn-success" %>
+        <%= link_to 'List of Bookmarked Users', bookmarks_path(tour_id: @tour.id), :method => 'get', :class=>"btn btn-success" %>
     <% end %>
     
     <% if current_user.is_admin || ( current_user.is_agent && current_user.id == @tour.user_id) %>
