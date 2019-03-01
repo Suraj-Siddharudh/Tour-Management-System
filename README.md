@@ -70,12 +70,12 @@ Your app will run on http://localhost:3000
   - Log in with email and password.
   - Search available tours using filters, such as start date range, price range, tour name and locations visited during the tour (Itinerary)
   - Bookmark tours they are interested in.
-  - Book n seats on a tour.
+  - Book n seats on a tour for "Active" Tours.
   - View information about tours
   - Can delete his own account.
 
 ### Miscellaneous
-   - All users can use their **Google account** with NCSU email id to log into the system. By Default, user will be gve Customer Access.
+   - All users can use their **Google account** with NCSU email id to log into the system. By Default, user will have Customer Access.
     
 
 
