@@ -3,12 +3,13 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
   <h1>Tours</h1>
+
+   <p>
+   <%= link_to 'Search Tours', new_tour_search_path , :class => "btn btn-success"%>
+   </p>
 <%= render 'table' %>
 
-  <br>
-   <p>
-   <%= link_to 'Search Tours', new_tour_search_path %>
-   </p>	
+  <br>	
 <% if current_user.is_admin || current_user.is_agent%>
   <%= link_to 'New Tour', new_tour_path , :class => "btn btn-success"%>
   <%end%>

@@ -5,16 +5,14 @@
     <%= form.text_field :Name, autofocus: true %>
   </div>
 
-  <%# <div class="field">
-    <%= f.label 'Property Size' %><br />
-    <%# <%= f.select :size, size_options, :include_blank => true %>
-  <%# </div> %>
-
-  <%# <div class="field">
-    <%= form.label 'Property Price' %><br />
-    <%# <%= form.select :price, Price_options, :include_blank => true %>
-  <%# </div> %>
-
+  <div class="field">
+    <%= form.label 'Countries' %><br />
+    <%= form.text_field :countries, autofocus: true %>
+  </div>
+  <div class="field">
+    <%= form.label 'Tour Price' %><br />
+    <%= form.select :Price, price_options, :include_blank => true %>
+  </div>
   <div class="actions">
     <%= form.submit "Search" %>
   </div>

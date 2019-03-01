@@ -61,20 +61,13 @@ class ToursController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  INTEGER_MAX = 2147483647
-  SIZE_MAPPING = {
-    1 => [0, 500],
-    2 => [500, 1500],
-    3 => [1500, 3000],
-    4 => [3000, INTEGER_MAX]
-  }
+  INTEGER_MAX = 100
   PRICE_MAPPING = {
-    1 => [0, 100000],
-    2 => [100000, 250000],
-    3 => [250000, 500000],
-    4 => [500000, 1000000],
-    5 => [1000000, INTEGER_MAX]
+    1 => [0, 2.0],
+    2 => [2.0, 3.0],
+    3 => [3.0, 4.0],
+    4 => [4.0, 5.0],
+    5 => [6.0, INTEGER_MAX]
   }
 
   def new_search
@@ -86,7 +79,7 @@ class ToursController < ApplicationController
     # @tours = @tours.where(:size => SIZE_MAPPING[@sp['size'].to_i][0]...SIZE_MAPPING[@sp['size'].to_i][1]) if @sp['size'].present?
     @tours = @tours.where(['Name LIKE ?', "%#{@sp['Name']}%"]) if @sp['Name'].present? && @sp['Name'] != ""
     @tours = @tours.where(['countries LIKE ?', "%#{@sp['countries']}%"]) if @sp['countries'].present? && @sp['countries'] != ""
-    @tours = @tours.where(:price => PRICE_MAPPING[@sp['Price'].to_i][0]...PRICE_MAPPING[@sp['Price'].to_i][1]) if @sp['Price'].present?
+    @tours = @tours.where(:Price => PRICE_MAPPING[@sp['Price'].to_i][0]...PRICE_MAPPING[@sp['Price'].to_i][1]) if @sp['Price'].present?
   end
 
   private
