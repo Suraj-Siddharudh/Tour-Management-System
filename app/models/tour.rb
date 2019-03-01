@@ -3,7 +3,7 @@ class Tour < ApplicationRecord
 	
 	validates_presence_of :Name, :pickup, :status, :countries, :states, :Description
 	validates_numericality_of :total_seats, greater_than: 0, less_than_or_equal_to: 100, presence: true #avail_seats
-	# validates_numericality_of :avail_waitlist, :Price, greater_than: 0, presence: true
+	validates_numericality_of  :Price, greater_than: 0, less_than_or_equal_to: 300000
 	#Removing validation on avail seats and waitlist
 	has_many :bookings
 	mount_uploader :image, ImageUploader

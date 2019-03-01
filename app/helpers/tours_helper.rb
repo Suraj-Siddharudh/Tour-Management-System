@@ -5,6 +5,6 @@ module ToursHelper
         content_tag("span", content, html_options)
         end
     def price_options
-        [["0-3.0", 1], ["2.0-3.0", 2], ["3.0-4.0", 3], ["4.0 - 10", 4], ["10 +", 5]]
+        [["0-1999", 1], ["2000-4999", 2], ["5000-9999", 3], ["10000-14999", 4], ["15000+", 5]]
     end
 end

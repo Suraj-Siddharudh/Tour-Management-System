@@ -30,13 +30,22 @@
     <%= f.label :phone_number%>
     <%= f.text_field :phone_number, :class => "form-control" %>
   </div>
-<% if !current_user.is_admin%>
+<% if current_user.is_admin%>
+  <%= tooltip "If Editing Admin Profile, no change in behavior if either clicked", { :tooltip => 'some keywords to categorize your data and help in future searches' }, :class => 'mytooltip' %>
   <div class="field">
     <%= f.label :role %>
     <%= f.radio_button :role, 'Customer' %> Customer<br />
     <%= f.radio_button :role, 'Agent' %> Agent<br />
   </div>
   <%end%>
+  <% if current_user.is_customer || current_user.is_agent %>
+  <div class="field">
+    <%= f.label :role %>
+    <%= f.radio_button :role, 'Customer' %> Customer<br />
+    <%= f.radio_button :role, 'Agent' %> Agent<br />
+  </div>
+  <%end%>
+  
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
