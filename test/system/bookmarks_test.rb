@@ -15,7 +15,7 @@ class BookmarksTest < ApplicationSystemTestCase
     click_on "New Bookmark"
 
     fill_in "Created at", with: @bookmark.created_at
-    fill_in "Property", with: @bookmark.property_id
+    fill_in "Tour", with: @bookmark.tour_id
     fill_in "Updated at", with: @bookmark.updated_at
     fill_in "User", with: @bookmark.user_id
     click_on "Create Bookmark"
@@ -29,7 +29,7 @@ class BookmarksTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Created at", with: @bookmark.created_at
-    fill_in "Property", with: @bookmark.property_id
+    fill_in "Tour", with: @bookmark.tour_id
     fill_in "Updated at", with: @bookmark.updated_at
     fill_in "User", with: @bookmark.user_id
     click_on "Update Bookmark"

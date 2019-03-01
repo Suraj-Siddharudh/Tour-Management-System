@@ -17,7 +17,7 @@ class BookmarksControllerTest < ActionDispatch::IntegrationTest
 
   test "should create bookmark" do
     assert_difference('Bookmark.count') do
-      post bookmarks_url, params: { bookmark: { created_at: @bookmark.created_at, property_id: @bookmark.property_id, updated_at: @bookmark.updated_at, user_id: @bookmark.user_id } }
+      post bookmarks_url, params: { bookmark: { created_at: @bookmark.created_at, tour_id: @bookmark.tour_id, updated_at: @bookmark.updated_at, user_id: @bookmark.user_id } }
     end
 
     assert_redirected_to bookmark_url(Bookmark.last)
@@ -34,7 +34,7 @@ class BookmarksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update bookmark" do
-    patch bookmark_url(@bookmark), params: { bookmark: { created_at: @bookmark.created_at, property_id: @bookmark.property_id, updated_at: @bookmark.updated_at, user_id: @bookmark.user_id } }
+    patch bookmark_url(@bookmark), params: { bookmark: { created_at: @bookmark.created_at, tour_id: @bookmark.tour_id, updated_at: @bookmark.updated_at, user_id: @bookmark.user_id } }
     assert_redirected_to bookmark_url(@bookmark)
   end
 
