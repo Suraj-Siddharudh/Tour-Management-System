@@ -65,25 +65,34 @@
     <%= image_tag(@tour.image.url, alt: 'Image') if @tour.image? %>
     <br/><br/>
     
+    <div class="actions">
+    <% if current_user.is_admin || ( current_user.is_customer ) %>
+       <%= link_to 'Book this tour!', new_booking_path(:tour_id => @tour) ,:class=>"btn btn-success"%>
+    <% end %>
+    </div>
 
+    <div class="actions">
     <% if current_user.is_admin || ( current_user.is_customer ) %>
       <%= button_to 'Interested', bookmarks_path(tour_id: @tour.id), :method => 'post', :class=>"btn btn-success" %>
     <% end %>
+  </div>
 
+    <div class="actions">
     <% if current_user.is_admin || ( current_user.is_agent && current_user.id == @tour.user_id) %>
-        <%= button_to 'List of Bookmarked Users', bookmarks_path(tour_id: @tour.id), :method => 'get', :class=>"btn btn-success" %>
+        <%= link_to 'List of Bookmarked Users', bookmarks_path(tour_id: @tour.id), :method => 'get', :class=>"btn btn-success" %>
     <% end %>
-    
+    </div>
+
+    <div class="actions">
     <% if current_user.is_admin || ( current_user.is_agent && current_user.id == @tour.user_id) %>
         <%= link_to 'Edit', edit_tour_path(@tour), :class=>"btn btn-success"%>
     <% end %>
-    
+    </div>
+
     <br/>
     <% if current_user.is_admin || ( current_user.is_agent && current_user.id == @tour.user_id) %>
         <%= button_to 'Destroy', @tour, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-outline-danger"%>
     <% end %>
-    
     <%= link_to 'Back', tours_path, :class=>"btn btn-secondary float-right" %>
-    </div>
   </div>
 </div>
