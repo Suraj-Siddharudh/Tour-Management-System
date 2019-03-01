@@ -66,7 +66,7 @@
     <br/><br/>
     
     <div class="actions">
-    <% if current_user.is_admin || ( current_user.is_customer ) %>
+    <% if (current_user.is_admin ||  current_user.is_customer ) && (@tour.status.eql?"Active")%>
        <%= link_to 'Book this tour!', new_booking_path(:tour_id => @tour) ,:class=>"btn btn-success"%>
     <% end %>
     </div>
