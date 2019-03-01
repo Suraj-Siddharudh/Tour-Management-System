@@ -11,6 +11,14 @@
     </div>
   <% end %>
 
+<p>
+  <strong>Total Seats:</strong>
+  <%= Tour.find(@tour.id).total_seats %>
+</p>
+<p>
+  <strong>Avialable Seats:</strong>
+  <%= Tour.find(@tour.id).avail_seats %>
+</p>
   <div class="field">
     <%= form.label :no_of_seats %>
     <%= form.number_field :no_of_seats %>

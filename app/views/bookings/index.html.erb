@@ -2,15 +2,16 @@
 <%= render "partials/navbar" %>
 
 <p id="notice"><%= notice %></p>
-
-<!-- <h1>Bookings</h1> -->
-
+<h1>Booked Users / Bookings</h1>
+<div class="container">
 <table>
   <thead>
     <tr>
-      <th>Number of Seats</th>
       <th>Tour</th>
       <th>User</th>
+      <th>Number of Seats</th>
+        <th>Phone Number</th>
+        <th>Email</th>
       <th colspan="5"></th>
     </tr>
   </thead>
@@ -18,17 +19,23 @@
   <tbody>
     <% @bookings.each do |booking| %>
       <tr>
-        <td><%= booking.no_of_seats %></td>
         <td><%= Tour.find(booking.tour_id).Name %></td>
+        <td><%= User.find(booking.user_id).first_name %></td>
+        <td><%= booking.no_of_seats %></td>
+        <td><%= User.find(booking.user_id).phone_number %></td>
         <td><%= User.find(booking.user_id).email %></td>
         <td><%= link_to 'Show', booking %></td>
+         <% if current_user.is_admin || current_user.is_customer%>
         <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
-        <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
+        <% if current_user.is_admin || current_user.is_customer%>
+        <td><%= button_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
 <%= link_to 'View Tours', tours_url %>

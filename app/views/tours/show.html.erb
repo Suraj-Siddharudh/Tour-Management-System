@@ -85,6 +85,12 @@
 
     <div class="actions">
     <% if current_user.is_admin || ( current_user.is_agent && current_user.id == @tour.user_id) %>
+        <%= link_to 'List of Booked Users', bookings_path(tour_id: @tour.id), :method => 'get', :class=>"btn btn-success" %>
+    <% end %>
+    </div>
+
+    <div class="actions">
+    <% if current_user.is_admin || ( current_user.is_agent && current_user.id == @tour.user_id) %>
         <%= link_to 'Edit', edit_tour_path(@tour), :class=>"btn btn-success"%>
     <% end %>
     </div>
