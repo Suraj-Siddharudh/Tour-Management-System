@@ -35,8 +35,9 @@
           <td><%= tour.countries %></td>
           <td><%= tour.states %></td>
           <td><%= link_to 'Show', tour %></td>
+          <% if current_user.is_admin || current_user.is_customer%>
           <td><%= link_to 'Book', new_booking_path(:tour_id => tour,:user_id => current_user) %></td>
-          
+          <%end %>
           <%# <% if current_user.is_admin || ( current_user.is_agent && current_user == tour.user_id ) %> 
               <%# <td><%= link_to 'Edit', edit_tour_path(tour) %></td> 
           <%# <%end %> 
