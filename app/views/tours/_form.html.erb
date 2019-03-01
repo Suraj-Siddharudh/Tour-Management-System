@@ -79,6 +79,12 @@
     <%= form.file_field :image ,data: { max_file_size: 5.megabytes }%>
   </div>
 
+<p>
+    <label>
+      <%= form.check_box :remove_image %>
+      Remove Image
+    </label>
+  </p>
   <div class="actions">
     <div class="form-group">
       <%= form.submit :class=> "btn btn-success" %>

@@ -42,6 +42,9 @@ class ToursController < ApplicationController
   # PATCH/PUT /tours/1
   # PATCH/PUT /tours/1.json
   def update
+    if params[:tour][:remove_image].present?
+      @tour.remove_image!
+    end
     respond_to do |format|
       if @tour.update(tour_params)
         format.html { redirect_to @tour, notice: 'Tour was successfully updated.' }
