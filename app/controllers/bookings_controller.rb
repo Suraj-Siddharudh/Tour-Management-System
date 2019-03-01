@@ -80,13 +80,17 @@ class BookingsController < ApplicationController
         elsif booking_params['option'] == "Book all avaialble seats and waitlist remaining"
           waitlist_count = @booking.no_of_seats - @tour.avail_seats
           @booking.no_of_seats = @tour.avail_seats
-          # waitlist = CustomerWaitList.new({"user_id" => current_user.id, "tour_id" => cparams[:tour_id], "seats_requested" => waitlist_count}).save
+          waitlist = Waitlist.new({"user_id" => current_user.id, "tour_id" => booking_params[:tour_id], "no_of_seats" => waitlist_count}).save
           ready = true
+          @tour.avail_waitlist = waitlist_count
+          @tour.save
         elsif booking_params['option'] == "Add all seats to Waitlist"
           waitlist_count = @booking.no_of_seats
           @booking.no_of_seats = 0
-          # waitlist = CustomerWaitList.new({"user_id" => current_user.id, "tour_id" => cparams[:tour_id], "seats_requested" => waitlist_count}).save
+          waitlist = Waitlist.new({"user_id" => current_user.id, "tour_id" => booking_params[:tour_id], "no_of_seats" => waitlist_count}).save
           ready = true
+          @tour.avail_waitlist = waitlist_count
+          @tour.save
         else
         end
       end
