@@ -53,25 +53,29 @@ Your app will run on http://localhost:3000
    - Create agent and customer accounts (users).
    - View the list of all users and their profile details (except password).
    - Edit or delete users (agents or customers) from the system
+   - View the list of all tours, along with detailed information.
 
 ### Agent
   - Login with email and password.
   - List a tour.  
   - Edit/update/delete/cancel tours that they have posted. 
-  - Cannot edit tours posted by other agents.
+       - Cannot edit tours posted by other agents.
   - View all tours (including those listed by others).
-  - Upload and delete pictures of tours that they themselves have listed. 
+  - Upload and delete pictures of tours that they themselves have listed (Deleting can be done only by going to Edit Option). 
   - View list of all customers who have bookmarked a tour (created by them).
-  - Agent should be able to delete his own account.
+  - View list of all customers who have booked a tour.
+  - Can delete his own account.
 
 ### Customer
   - Log in with email and password.
+  - Search available tours using filters, such as start date range, price range, tour name and locations visited during the tour (Itinerary)
   - Bookmark tours they are interested in.
+  - Book n seats on a tour.
   - View information about tours
-  - Customer should be able to delete his own account.
+  - Can delete his own account.
 
 ### Miscellaneous
-   - All users can use their **Google account** with NCSU email id to log into the system
+   - All users can use their **Google account** with NCSU email id to log into the system. By Default, user will be gve Customer Access.
     
 
 
