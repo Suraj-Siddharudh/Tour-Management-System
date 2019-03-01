@@ -6,6 +6,7 @@ class Tour < ApplicationRecord
 	has_many :bookmark
 	mount_uploader :image, ImageUploader
 	serialize :image, JSON
+	validate :image_size_validation
 	
 
 	validates_presence_of :Name, :pickup, :status, :countries, :states, :Description
@@ -19,8 +20,12 @@ class Tour < ApplicationRecord
 
   def valid_end_date?
 	  errors.add(:start_date, "must be before end_date") unless start_date < end_date
-end
+	end
 
+# Image validation in image_uloader.rb
+	def image_size_validation
+		errors[:image] << "should be less than 5MB" if image.size > 5.megabytes
+	end
 
 	private
 

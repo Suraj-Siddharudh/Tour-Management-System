@@ -3,29 +3,23 @@
 <%= render "partials/navbar" %>
 <div class="container" style="margin-top:20px">
   <div class="jumbotron">
-    <h1 class="display-4">Hello,<%= current_user.first_name%></h1>
-    <p class="lead">Welcome to Tour </p>
+    <h1 class="display-4">Hello, <%= current_user.first_name%></h1>
+    <p class="lead">Welcome to Tour Booking App</p>
     <hr class="my-4">
     <div class="list-group">
+
       <%# All %>
-
       <%= link_to 'View Tours', tours_path, :class => "list-group-item list-group-item-action"%>
-      <%# <%= link_to 'My Enquiries', queries_path, :class => "list-group-item list-group-item-action"%>
-      <%# <%= link_to 'View Companies', companies_path, :class=>"list-group-item list-group-item-action"  %> 
-      
-      <%# <%= link_to 'My Enquiries', queries_path, :class => "list-group-item list-group-item-action"%> 
-      <%# <%= link_to 'View Companies', companies_path, :class=>"list-group-item list-group-item-action"  %> 
-      <% if current_user.is_customer%>
+     
+     <%# Customer and Admin Features%>
+     <% if current_user.is_customer || current_user.is_admin%>
         <%= link_to 'My Bookings', bookings_path, :class=>"list-group-item list-group-item-action"  %>
-      <% end %>
-
-      <% if current_user.is_customer%>
         <%= link_to 'My Bookmarks', bookmarks_path, :class=>"list-group-item list-group-item-action"  %>
       <% end %>
 
+      <%# Agent and Admin Features%>
       <% if current_user.is_agent || current_user.is_admin %>
         <%= link_to 'Add Tour', new_tour_path, :class=>"list-group-item list-group-item-action" %>
-        <%# <%= link_to 'Add Company', new_company_path, :class => "list-group-item list-group-item-action"%> 
       <% end%> 
 
       <%# Admin Features%>

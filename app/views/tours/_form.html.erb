@@ -18,11 +18,13 @@
 
   <div class="form-group">
     <%= form.label :Description %>
-    <%= form.text_area :Description, :class => "form-control" %>
+    <%= tooltip "Please Don't Overwhelm Customer, Keep it Nice and Short.(<=200)", { :tooltip => 'Tour_tooltip' }, :class => 'mytooltip' %>
+    <%= form.text_area :Description, :maxlength => 200, :class => "form-control" %>
   </div>
 
   <div class="form-group">
     <%= form.label :Price %>
+    <%= tooltip "Integral value between 0 and 300000", { :tooltip => 'Tour_tooltip' }, :class => 'mytooltip' %>
     <%= form.text_field :Price, :class => "form-control" %>
   </div>
 
@@ -33,16 +35,18 @@
 
    <div class="form-group">
     <%= form.label :end_date %>
+    <%= tooltip "End Date should be after Start Date", { :tooltip => 'Tour_tooltip' }, :class => 'mytooltip' %>
     <%= form.date_field :end_date, min: Date.tomorrow , :class => "form-control" %>
   </div>
 
    <div class="form-group">
-    <%= form.label :pickup %>
+    <%= form.label "Start location" %>
     <%= form.text_field :pickup , :class => "form-control"%>
   </div>
 
    <div class="form-group">
     <%= form.label :total_seats %>
+    <%= tooltip "Integral value between 1 and 100", { :tooltip => 'Tour_tooltip' }, :class => 'mytooltip' %>
     <%= form.text_field :total_seats, :class => "form-control" %>
   </div>
 
@@ -59,19 +63,20 @@
 
   <div class="form-group">
     <%= form.label :countries %>
-    <%= tooltip "Seperate the countries by a comma", { :tooltip => 'some keywords to categorize your data and help in future searches' }, :class => 'mytooltip' %>
+    <%= tooltip "Seperate the countries by a comma", { :tooltip => 'Tour_tooltip' }, :class => 'mytooltip' %>
     <%= form.text_field :countries , :class => "form-control"%>
   </div>
 
   <div class="form-group">
     <%= form.label :states %>
-    <%= tooltip "Separate the states by a comma", { :tooltip => 'some keywords to categorize your data and help in future searches' }, :class => 'mytooltip' %>
+    <%= tooltip "Separate the states by a comma", { :tooltip => 'Tour_tooltip' }, :class => 'mytooltip' %>
     <%= form.text_field :states, :class => "form-control" %>
   </div>
 
   <div>
     <%= form.label :image %>
-    <%= form.file_field :image %>
+    <%= tooltip "Allowed Tyes: JPG, JPEG, PNG, Max 5 MB", { :tooltip => 'Tour_tooltip' }, :class => 'mytooltip' %>
+    <%= form.file_field :image ,data: { max_file_size: 5.megabytes }%>
   </div>
 
   <div class="actions">

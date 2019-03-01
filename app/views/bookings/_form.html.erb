@@ -19,12 +19,15 @@
   <strong>Avialable Seats:</strong>
   <%= Tour.find(@tour.id).avail_seats %>
 </p>
-  <div class="field">
+<br/>
+  <div class="form-group">
     <%= form.label :no_of_seats %>
+    <%= tooltip "Integral value between 1 and 100", { :tooltip => 'Booking_tooltip' }, :class => 'mytooltip' %>
+    <br/>
     <%= form.number_field :no_of_seats %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
   <% if @overbooked %>
     Sorry, as of this moment, there aren't enough seats to meet your request. What would you like to do?</P>
     <%= form.select :option, ["Book only avaialble seats", "Book all avaialble seats and waitlist remaining","Add all seats to Waitlist"] %>
