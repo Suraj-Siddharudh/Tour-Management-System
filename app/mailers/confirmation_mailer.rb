@@ -7,10 +7,10 @@ class ConfirmationMailer < ApplicationMailer
         puts "--------------------------*-*-*-*----------------------------------"
         puts params
         puts "--------------------------*-*-*-*----------------------------------"
-        puts params[:user_id]
-        email_id = User.where(id: params[:user_id]).pluck(:email)
+        puts params[:bookmark]
+        email_id = User.where(id: params[:bookmark]).pluck(:email)
         puts "--------------------------*-*-*-*----------------------------------"
-        mail(to: email_id, subject: 'New Reply on your Enquiry')
+        mail(to: email_id, subject: 'Congratulations!!!! You got your tickets booked.. Yay!!!!')
         puts email_id
      end
 end

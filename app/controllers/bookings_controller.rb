@@ -28,7 +28,7 @@ class BookingsController < ApplicationController
           @tour.avail_seats = seats_available
           @tour.avail_waitlist = @tour.avail_waitlist - waitlist.no_of_seats
           @tour.save
-          ConfirmationMailer.with(bookmark: waitlist).new_confirmation_mail.deliver_now
+          ConfirmationMailer.with(bookmark: waitlist.user_id).new_confirmation_mail.deliver_now
           waitlist.destroy
         end
     end
