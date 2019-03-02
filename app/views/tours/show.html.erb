@@ -62,6 +62,25 @@
       <%= @tour.states %>
     </p>
 
+     <p>
+      <strong>Contact Information</strong>
+    </p>
+
+    <p>
+      <strong>Name:</strong>
+      <%= User.find(@tour.user_id).first_name %>
+    </p>
+
+    <p>
+      <strong>Email Id:</strong>
+      <%= User.find(@tour.user_id).email %>
+    </p>
+
+    <p>
+      <strong>Contact No.:</strong>
+      <%= User.find(@tour.user_id).phone_number %>
+    </p>
+
     <%= image_tag(@tour.image.url, alt: 'Image') if @tour.image? %>
     <br/><br/>
     
