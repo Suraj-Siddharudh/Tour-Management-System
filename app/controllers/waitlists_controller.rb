@@ -4,7 +4,14 @@ class WaitlistsController < ApplicationController
   # GET /waitlists
   # GET /waitlists.json
   def index
-    @waitlists = Waitlist.all
+    if current_user.is_admin
+      @waitlists = Waitlist.all
+    elsif current_user.is_agent
+      # tour_owner = Tour.where(id: params[:tour_id]).pluck(:user_id)
+      @waitlists = Waitlist.where(tour_id: params[:tour_id])#.where(user_id: tour_owner)
+    elsif current_user.is_customer
+      @waitlists = Waitlist.where(user_id: current_user.id)
+    end
   end
 
   # GET /waitlists/1
@@ -58,9 +65,6 @@ class WaitlistsController < ApplicationController
   # DELETE /waitlists/1.json
   def destroy
     
-    tour = Tour.find(@booking.tour_id)
-    @tour.avail_waitlist = 0
-    @tour.save
     @waitlist.destroy
 
     respond_to do |format|
