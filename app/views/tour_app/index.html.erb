@@ -3,32 +3,36 @@
 <%= render "partials/navbar" %>
 <div class="container" style="margin-top:20px">
   <div class="jumbotron">
-    <h1 class="display-4">Hello,<%= current_user.first_name%></h1>
-    <p class="lead">Welcome to Tour </p>
+    <h1 class="display-4">Hello, <%= current_user.first_name%></h1>
+    <p class="lead">Welcome to Tour Booking App</p>
     <hr class="my-4">
     <div class="list-group">
+
       <%# All %>
-
       <%= link_to 'View Tours', tours_path, :class => "list-group-item list-group-item-action"%>
-      <%# <%= link_to 'My Enquiries', queries_path, :class => "list-group-item list-group-item-action"%>
-      <%# <%= link_to 'View Companies', companies_path, :class=>"list-group-item list-group-item-action"  %> 
-      
-      <%# <%= link_to 'My Enquiries', queries_path, :class => "list-group-item list-group-item-action"%> 
-      <%# <%= link_to 'View Companies', companies_path, :class=>"list-group-item list-group-item-action"  %> 
-
-      <%# <% if session[:role] == 'hunter' %> 
+     
+     <%# Customer and Admin Features%>
+     <% if current_user.is_customer || current_user.is_admin%>
+        <%= link_to 'My Bookings', bookings_path, :class=>"list-group-item list-group-item-action"  %>
         <%= link_to 'My Bookmarks', bookmarks_path, :class=>"list-group-item list-group-item-action"  %>
-      <%# <% end  %>
+        <%= link_to 'My Waitlists', waitlists_path, :class=>"list-group-item list-group-item-action"  %>
+      <% end %>
 
-      <%# Admin & Realtor %>
-      <%# <% if  session[:role] == 'realtor' || current_user.is_admin %> 
-        <%# <%= link_to 'Add Property', new_property_path, :class=>"list-group-item list-group-item-action"%> 
-        <%# <%= link_to 'Add Company', new_company_path, :class => "list-group-item list-group-item-action"%> 
-      <%# <% end %> 
+      <%# Customer Features%>
+      <% if current_user.is_customer%>
+      <%= link_to 'My Reviews', reviews_path, :class=>"list-group-item list-group-item-action"  %>
+      <%end%>
+      <%# Agent and Admin Features%>
+      <% if current_user.is_agent || current_user.is_admin %>
+        <%= link_to 'Add Tour', new_tour_path, :class=>"list-group-item list-group-item-action" %>
+      <% end%> 
 
       <%# Admin Features%>
       <% if current_user.is_admin %>
+        <%= link_to 'List of Bookings', bookings_path, :method => 'get', :class => "list-group-item list-group-item-action"%>
         <%= link_to 'List of Bookmarked Users', bookmarks_path, :method => 'get', :class => "list-group-item list-group-item-action"%>
+        <%= link_to 'All Reviews', reviews_path, :class=>"list-group-item list-group-item-action"  %>
+        <%= link_to 'List of Waitlists', waitlists_path, :method => 'get', :class => "list-group-item list-group-item-action"%>
         <%= link_to 'View Users', users_path, :class => "list-group-item list-group-item-action"%>
         <%= link_to 'Add User', { :controller => :users, :action => :new }, :class => "list-group-item list-group-item-action"%>
         <%= link_to 'View Agents', agents_path, :class => "list-group-item list-group-item-action" %>

@@ -50,13 +50,12 @@ Your app will run on http://localhost:3000
    - View the list of all tours, along with detailed information.
    - View all fields of reviews (defined below) from customers.
 
-
 ### Agent
   - Login with email and password.
   - List a tour.  
   - Edit/update/delete/cancel tours that they have posted. (Cannot edit tours posted by other agents.)
   - View all tours (including those listed by others).
-  - Upload and delete pictures of tours that they themselves have listed. 
+  - Upload and delete pictures of tours that they themselves have listed (Deleting can be done only by going to Edit Option). 
   - View list of all customers who have bookmarked a tour (created by them).
   - Agent should be able to delete his own account.
   - View reviews of a tour.
@@ -64,15 +63,16 @@ Your app will run on http://localhost:3000
 
 ### Customer
   - Log in with email and password.
+  - Search available tours using filters, such as start date range, price range, tour name and locations visited during the tour (Itinerary)
   - Bookmark tours they are interested in.
+  - Book n seats on a tour for "Active" Tours.
   - View information about tours
-  - Customer should be able to delete his own account.
+  - Customer is able to delete his own account.
   - Search available tours using filters, such as start date range, price range, tour name, slot availability and locations     visited during the tour (Itinerary)
   - Book n seats on a tour.
   - Cancel a booking completely or cancel a few seats from a booking done previously.
   - Submit a review for a tour that that customer has already taken.
-   - Edit or delete a review they previously submitted.
-
+  - Edit or delete a review they previously submitted.
 
 ### Miscellaneous
    - Testing is thoroughly done for the user model and user controller.

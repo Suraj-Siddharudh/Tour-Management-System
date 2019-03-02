@@ -70,7 +70,7 @@ end
   Tour.create(
     Name: Faker::Company.name, 
     Description: Faker::Marketing.buzzwords, 
-    Price: Faker::Number.between(0, 3),
+    Price: Faker::Number.between(0, 30000),
     start_date: Faker::Date.forward(30), 
     end_date: Faker::Date.between(1.month.from_now,2.month.from_now), 
     pickup: Faker::Boolean.boolean, 
@@ -87,7 +87,7 @@ end
   Tour.create(
     Name: Faker::Company.name, 
     Description: Faker::Marketing.buzzwords, 
-    Price: Faker::Number.between(0, 3),
+    Price: Faker::Number.between(0, 30000),
     start_date: Faker::Date.forward(30), 
     end_date: Faker::Date.between(1.month.from_now,2.month.from_now), 
     pickup: Faker::Boolean.boolean, 

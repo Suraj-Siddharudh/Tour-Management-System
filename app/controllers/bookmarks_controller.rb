@@ -7,8 +7,8 @@ class BookmarksController < ApplicationController
     if current_user.is_admin
       @bookmarks = Bookmark.all
     elsif current_user.is_agent
-      tour_owner = Tour.where(id: params[:tour_id]).pluck(:user_id)
-      @bookmarks = Bookmark.where(tour_id: params[:tour_id]).where(user_id: tour_owner)
+      # tour_owner = Tour.where(id: params[:tour_id]).pluck(:user_id)
+      @bookmarks = Bookmark.where(tour_id: params[:tour_id])#.where(user_id: tour_owner)
     elsif current_user.is_customer
       @bookmarks = Bookmark.where(user_id: current_user.id)
     end
@@ -79,6 +79,6 @@ class BookmarksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bookmark_params
-      params.require(:bookmark).permit(:user_id, :property_id, :created_at, :updated_at, :tour_id)
+      params.require(:bookmark).permit(:user_id, :created_at, :updated_at, :tour_id)
     end
 end

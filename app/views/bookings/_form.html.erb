@@ -11,11 +11,31 @@
     </div>
   <% end %>
 
-  <div class="field">
+<p>
+  <strong>Total Seats:</strong>
+  <%= Tour.find(@tour.id).total_seats %>
+</p>
+<p>
+  <strong>Avialable Seats:</strong>
+  <%= Tour.find(@tour.id).avail_seats %>
+</p>
+<br/>
+  <div class="form-group">
     <%= form.label :no_of_seats %>
+    <%= tooltip "Integral value between 1 and 100", { :tooltip => 'Booking_tooltip' }, :class => 'mytooltip' %>
+    <br/>
     <%= form.number_field :no_of_seats %>
   </div>
 
+  <div class="form-group">
+  <% if @overbooked %>
+    Sorry, as of this moment, there aren't enough seats to meet your request. What would you like to do?</P>
+    <%= form.select :option, ["Book only avaialble seats", "Book all avaialble seats and waitlist remaining","Add all seats to Waitlist"] %>
+  <% end %>
+</div>
+
+    <%= form.hidden_field :user_id, :value => current_user.id %>
+    <%= form.hidden_field :tour_id, :value => @tour.id %>
   <div class="actions">
     <%= form.submit %>
   </div>

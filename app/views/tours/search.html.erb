@@ -1,0 +1,14 @@
+<% provide(:title, "Home") %>
+<%= render "partials/navbar" %>
+
+<div class="container">
+  <h1>Matching Tours</h1>
+   <p>
+    <%= link_to 'Search Tours', new_tour_search_path %>
+  </p>
+    <%= render 'table' %>
+<%= link_to 'Back', tours_path,:class=>"btn btn-secondary float-right" %>
+ <% if current_user.is_admin || current_user.is_agent%>
+  <%= link_to 'New Tour', new_tour_path , :class => "btn btn-success"%>
+  <%end%>
+</div>

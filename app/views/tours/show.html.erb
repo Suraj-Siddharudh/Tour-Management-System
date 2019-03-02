@@ -62,28 +62,81 @@
       <%= @tour.states %>
     </p>
 
+     <p>
+      <strong>Contact Information</strong>
+    </p>
+
+    <p>
+      <strong>Name:</strong>
+      <%= User.find(@tour.user_id).first_name %>
+    </p>
+
+    <p>
+      <strong>Email Id:</strong>
+      <%= User.find(@tour.user_id).email %>
+    </p>
+
+    <p>
+      <strong>Contact No.:</strong>
+      <%= User.find(@tour.user_id).phone_number %>
+    </p>
+
     <%= image_tag(@tour.image.url, alt: 'Image') if @tour.image? %>
     <br/><br/>
     
-
-    <% if current_user.is_admin || ( current_user.is_customer ) %>
-      <%= link_to 'Interested', bookmarks_path(tour_id: @tour.id), :method => 'post', :class=>"btn btn-success" %>
+    <div class="actions">
+    <% if (current_user.is_admin ||  current_user.is_customer ) && (@tour.status.eql?"Active")%>
+       <%= link_to 'Book this tour!', new_booking_path(:tour_id => @tour) ,:class=>"btn btn-success"%>
     <% end %>
+    </div>
 
+    <div class="actions">
+    <% if current_user.is_admin || ( current_user.is_customer ) %>
+      <%= button_to 'Interested', bookmarks_path(tour_id: @tour.id), :method => 'post', :class=>"btn btn-success" %>
+    <% end %>
+  </div>
+
+    <div class="actions">
     <% if current_user.is_admin || ( current_user.is_agent && current_user.id == @tour.user_id) %>
         <%= link_to 'List of Bookmarked Users', bookmarks_path(tour_id: @tour.id), :method => 'get', :class=>"btn btn-success" %>
     <% end %>
-    
+    </div>
+
+    <div class="actions">
+    <% if current_user.is_admin || ( current_user.is_agent && current_user.id == @tour.user_id) %>
+        <%= link_to 'List of Booked Users', bookings_path(tour_id: @tour.id), :method => 'get', :class=>"btn btn-success" %>
+    <% end %>
+    </div>
+
+    <div class="actions">
     <% if current_user.is_admin || ( current_user.is_agent && current_user.id == @tour.user_id) %>
         <%= link_to 'Edit', edit_tour_path(@tour), :class=>"btn btn-success"%>
     <% end %>
-    
+    </div>
+
     <br/>
     <% if current_user.is_admin || ( current_user.is_agent && current_user.id == @tour.user_id) %>
         <%= button_to 'Destroy', @tour, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-outline-danger"%>
     <% end %>
-    
     <%= link_to 'Back', tours_path, :class=>"btn btn-secondary float-right" %>
+  </div>
+
+  <%# <%= render "partials/reviews", reviews: Review.find(@tour.id) %>
+
+<h4> Reviews</h4>
+<% Review.where(tour_id: @tour.id).each do |review| %>
+
+<div class="container", style="margin-top:10px">
+  <div class="card">
+    <div class="card-header">
+      <p style="display:inline"><strong><%= User.find(review.user_id).first_name %> </strong></p>
+      <p class="float-right" style="display:inline;"> <%= review.created_at %> </p>
+    </div>
+    <div class="card-body">
+      <p> <%= review.subject %> </p>
+      <p> <%= review.content %> </p>
     </div>
   </div>
+</div>
+<% end %>
 </div>

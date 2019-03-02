@@ -12,15 +12,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
    def create
     @user = User.new(configure_sign_up_params)
-
-    if @user.role.eql? "Customer"
-      @user.is_customer = 1
-      @user.is_agent = 0
-    else
-      @user.is_customer = 0
-      @user.is_agent = 1
-    end
      super
+     if "Customer".eql? params[:user][:role]
+      puts "----------------------"
+      puts "Customer"
+      puts params[:user][:role]
+      puts "Customer" <=> params[:user][:role]
+      puts "---------------------"
+      @user.is_agent = 0
+      @user.is_customer = 1
+      @user.save
+    else
+      puts "----------------------"
+      puts "Agent"
+      @user.is_agent = 1
+      @user.is_customer = 0
+      @user.save
+    end
    end
 
   # GET /resource/edit
@@ -51,7 +59,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :role, :phone_number, :email, :password,:is_customer, :is_agent, :password_confirmation])
+    # params.require(:user).permit(:sign_up, keys: [:first_name, :last_name, :role, :phone_number, :email, :password,:is_customer, :is_agent, :password_confirmation])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :role, :phone_number, :email, :password,:is_customer, :is_agent, :password_confirmation])
   end
 
   # If you have extra params to permit, append them to the sanitizer.

@@ -1,0 +1,32 @@
+<% provide(:title, "Home") %>
+<%= render "partials/navbar" %>
+
+<%= form_for :search_params, url:"search" do |form| %>
+
+  <div class="field">
+    <%= form.label 'Name' %><br />
+    <%= form.text_field :Name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Countries' %><br />
+    <%= form.text_field :countries, autofocus: true %>
+  </div>
+  <div class="field">
+    <%= form.label 'Tour Price' %><br />
+    <%= form.select :Price, price_options, :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= form.label 'Start Date' %><br />
+    <%= form.date_field :StartDate, min: Date.today, :include_blank => true %>
+  </div>
+  <%# <div class="field">
+    <%= form.label 'End Date' <br />%>
+    <%# <%= form.date_field :EndDate, min: Date.tomorrow, :include_blank => true %>
+  <%# </div> %>
+  <div class="actions">
+    <%= form.submit "Search" %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', tours_path, :class=>"btn btn-secondary"%>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :reviews
+  resources :waitlists
   resources :bookmarks
   resources :bookings
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks", registrations: "users/registrations"}
@@ -17,5 +19,8 @@ Rails.application.routes.draw do
 
   match '/agents', to: 'users#agent', via: 'get'
   match '/customers', to: 'users#customer', via: 'get'
+  match '/tour/search' => 'tours#new_search', :via => 'get', :as => 'new_tour_search'
+  match '/tour/search' => 'tours#search', :via => 'post', :as=> 'tour_search'
   root to: 'tour_app#index'
+
 end
