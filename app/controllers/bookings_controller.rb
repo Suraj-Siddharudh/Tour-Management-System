@@ -10,11 +10,26 @@ class BookingsController < ApplicationController
     end
   end
 
-  def is_seats_available(avail_seats, required_seats)
-    if (avail_seats - required_seats) > 0
-      true
-    else
-      false
+  def waitlist_handler(tour_id)
+
+      @tour = Tour.find(tour_id)
+      # puts @tour.Name
+      seats_available = @tour.avail_seats
+      waitlists = Waitlist.where(tour_id: tour_id)
+
+      waitlists.each do |waitlist|
+        if waitlist.no_of_seats <= seats_available
+          seats_available = seats_available - waitlist.no_of_seats
+          @booking = Booking.new
+          @booking.no_of_seats = waitlist.no_of_seats
+          @booking.user_id = waitlist.user_id
+          @booking.tour_id = waitlist.tour_id
+          @booking.save
+          @tour.avail_seats = seats_available
+          @tour.avail_waitlist = @tour.avail_waitlist - waitlist.no_of_seats
+          @tour.save
+          waitlist.destroy
+        end
     end
   end
 
@@ -132,6 +147,7 @@ end
       elsif @booking.update(booking_params)
             @tour.avail_seats = @tour.avail_seats - requested_seat_count + current_seat_count
             @tour.save
+            waitlist_handler(@booking.tour_id)
             format.html { redirect_to @booking, notice: 'Customer booking was successfully updated to ' + requested_seat_count.to_s + " seats."}
             format.json { render :show, status: :ok, location: @booking }
       else
@@ -147,8 +163,8 @@ end
     @tour = Tour.find(@booking.tour_id)
     @tour.avail_seats = @tour.avail_seats + @booking.no_of_seats
     @tour.save
-    
     @booking.destroy
+    waitlist_handler(@tour.id)
     respond_to do |format|
       format.html { redirect_to bookings_url, notice: 'Booking was successfully destroyed.' }
       format.json { head :no_content }
