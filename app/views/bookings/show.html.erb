@@ -40,7 +40,12 @@
        <%= link_to 'Edit', edit_booking_path(@booking) ,:class=>"btn btn-success"%>
     <% end %>
  </div>
-
+<div class="actions">
+    <%tour_status = Tour.find(@booking.tour_id).status %>
+    <% if (current_user.is_admin || current_user.is_customer) && (tour_status.eql?"Completed")  %>
+       <%= link_to 'Add Review', new_review_path(:booking_id => @booking),:class=>"btn btn-success"%>
+    <% end %>
+ </div>
 <%= link_to 'Back', bookings_path , :class=>"btn btn-secondary float-right"%>
  </div>
 </div>

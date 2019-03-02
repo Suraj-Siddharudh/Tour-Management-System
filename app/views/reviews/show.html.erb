@@ -1,0 +1,40 @@
+<% provide(:title, "Home") %>
+<%= render "partials/navbar" %>
+<div class="container" style="margin-top:50px">
+  <div class="card">
+  <div class="card-body">
+ 
+  <h3 class="card-title">
+         <h4>Review</h4>
+    </h3>
+<p>
+  <strong>Subject:</strong>
+  <%= @review.subject %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @review.content %>
+</p>
+
+<p>
+    <strong> User:</strong>
+    <%=  User.find(@review.user_id).first_name  %>
+    <%=  User.find(@review.user_id).last_name %>
+  </p>
+
+<p>
+  <strong>Tour:</strong>
+  <%= Tour.find(@review.tour_id).Name %>
+</p>
+
+<p>
+  <strong>Booking:</strong>
+  <%= @review.booking_id %>
+</p>
+
+<%= link_to 'Edit', edit_review_path(@review) %> 
+<%= link_to 'Back', reviews_path %>
+</div>
+</div>
+</div>

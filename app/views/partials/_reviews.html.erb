@@ -1,0 +1,29 @@
+<%=reviews%>
+<% reviews.each do |review| %>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @review.subject %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @review.content %>
+</p>
+
+<p>
+    <strong> User:</strong>
+    <%=  User.find(@review.user_id).first_name  %>
+    <%=  User.find(@review.user_id).last_name %>
+  </p>
+
+<p>
+  <strong>Tour:</strong>
+  <%= Tour.find(@review.tour_id).Name %>
+</p>
+
+<p>
+  <strong>Booking:</strong>
+  <%= @review.booking_id %>
+</p>
+ <% end %>
