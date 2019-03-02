@@ -15,6 +15,7 @@
      <% if current_user.is_customer || current_user.is_admin%>
         <%= link_to 'My Bookings', bookings_path, :class=>"list-group-item list-group-item-action"  %>
         <%= link_to 'My Bookmarks', bookmarks_path, :class=>"list-group-item list-group-item-action"  %>
+        <%= link_to 'My Waitlists', waitlists_path, :class=>"list-group-item list-group-item-action"  %>
       <% end %>
 
       <%# Customer Features%>
@@ -31,6 +32,7 @@
         <%= link_to 'List of Bookings', bookings_path, :method => 'get', :class => "list-group-item list-group-item-action"%>
         <%= link_to 'List of Bookmarked Users', bookmarks_path, :method => 'get', :class => "list-group-item list-group-item-action"%>
         <%= link_to 'All Reviews', reviews_path, :class=>"list-group-item list-group-item-action"  %>
+        <%= link_to 'List of Waitlists', waitlists_path, :method => 'get', :class => "list-group-item list-group-item-action"%>
         <%= link_to 'View Users', users_path, :class => "list-group-item list-group-item-action"%>
         <%= link_to 'Add User', { :controller => :users, :action => :new }, :class => "list-group-item list-group-item-action"%>
         <%= link_to 'View Agents', agents_path, :class => "list-group-item list-group-item-action" %>

@@ -1,0 +1,36 @@
+<% provide(:title, "Home") %>
+<%= render "partials/navbar" %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Waitlists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tour</th>
+      <th>User</th>
+      <th>Number of Seats</th>
+      <th>Phone Number</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @waitlists.each do |waitlist| %>
+      <tr>
+        <td><%= Tour.find(waitlist.tour_id).Name %></td>
+        <td><%= User.find(waitlist.user_id).first_name %></td>
+        <td><%= waitlist.no_of_seats %></td>
+        <td><%= User.find(waitlist.user_id).phone_number %></td>
+        <td><%= User.find(waitlist.user_id).email %></td>
+        <td><%= link_to 'Show', waitlist %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'View Tours', tours_url %>

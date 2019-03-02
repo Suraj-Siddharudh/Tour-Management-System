@@ -1,0 +1,22 @@
+<%= form_with(model: waitlist, local: true) do |form| %>
+  <% if waitlist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(waitlist.errors.count, "error") %> prohibited this waitlist from being saved:</h2>
+
+      <ul>
+      <% waitlist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :no_of_seats %>
+    <%= form.number_field :no_of_seats %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
