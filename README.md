@@ -24,18 +24,22 @@ We have deployed our project on **Heroku**. To view, [click here](https://evenin
 To run the app locally, follow these steps:
 
 - Clone the repository on your local machine.
-git clone https://github.com/Suraj-Siddharudh/Toor-Management-System.git
+git clone https://github.com/Suraj-Siddharudh/Tour-Management-System.git
 
 
 - Go to the directory of the project where it is cloned using terminal
 
 - Install gems
+
 bundle install
 -  Complete Database Migrations
+
 rake db:migrate
 - Add pre-configured users
+
 rake db:seed
 - Run server
+
 rails server
 Your app will run on http://localhost:3000
 
