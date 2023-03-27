@@ -176,7 +176,7 @@ GEM
     orm_adapter (0.5.0)
     pg (1.1.4)
     public_suffix (5.0.0)
-    puma (4.3.12)
+    puma (6.1.1)
       nio4r (~> 2.0)
     racc (1.6.2)
     rack (2.2.6.4)
@@ -287,7 +287,7 @@ DEPENDENCIES
   omniauth
   omniauth-google-oauth2
   pg
-  puma (~> 4.3)
+  puma (~> 6.1)
   rails (~> 5.2.8)
   rails_12factor
   sass-rails (~> 5.0)
