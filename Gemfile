@@ -46,7 +46,7 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 
 #gem for image uploads
-gem 'carrierwave', '~> 2.2'
+gem 'carrierwave', '~> 3.0'
 
 # Gem to seed the DB
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
