@@ -122,7 +122,7 @@ GEM
       warden (~> 1.2.3)
     duktape (2.7.0.0)
     erubi (1.13.0)
-    execjs (2.8.1)
+    execjs (2.9.1)
     faraday (2.8.1)
       base64
       faraday-net_http (>= 2.0, < 3.1)
@@ -284,7 +284,7 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    uglifier (4.2.0)
+    uglifier (4.2.1)
       execjs (>= 0.3.0, < 3)
     version_gem (1.1.4)
     warden (1.2.9)
